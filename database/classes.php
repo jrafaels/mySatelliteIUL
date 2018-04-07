@@ -19,11 +19,11 @@
 			$resultado = $this->connection->prepare($sql);
 		
 			$resultado->execute(array());
-			$alunos = $resultado->fetchAll(PDO::FETCH_ASSOC);	
+			$list = $resultado->fetchAll(PDO::FETCH_ASSOC);	
 			
 			$resultado->closeCursor();
 			
-			return $alunos;
+			return $list;
 		}
 		
 		/**
@@ -41,9 +41,7 @@
 			
 			$resultado->closeCursor();
 			
-			foreach($list as $username){			
-				return $username;
-			}
+			return $list[0];
 		}
 		
 		/**
@@ -144,9 +142,7 @@
 			
 			$resultado->closeCursor();
 			
-			foreach($idlist as $id){			
-				return $id;
-			}
+			return $idlist[0];
 		}	
 		
 		/**
@@ -171,11 +167,11 @@
 			if($num_registos!=0){
 				session_start();
 				$_SESSION["username"]=$username;
-				$this->logLogin($username, 1, $ip);
+				//$this->logLogin($username, 1, $ip);
 				header("location:index.php");
 			
 			}else{
-				$this->logLogin($username, 0, $ip);
+				//$this->logLogin($username, 0, $ip);
 				header("location:login.php");
 			}			
 			
