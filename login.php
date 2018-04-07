@@ -29,7 +29,7 @@
 </head>
 <body class="hold-transition login-page">
 <?php
-  
+  kkkkkkkkkk
 	$client  = @$_SERVER['HTTP_CLIENT_IP'];
    	$forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
     $remote  = $_SERVER['REMOTE_ADDR'];
