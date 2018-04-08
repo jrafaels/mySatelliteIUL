@@ -27,7 +27,8 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page"
+background="/img/ango-sat1.jpg" bgproperties="fixed">
 <?php
 	$client  = @$_SERVER['HTTP_CLIENT_IP'];
    	$forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
@@ -60,8 +61,7 @@
 ?>
 <div class="login-box">
   <div class="login-logo">
-    <a href="index.php"><b>Citius</b>RCC</a>
-  </div>
+  <a href="index.php"><b>Citius</b>RCC</a></div>
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Bem vindo ao Citius RCC</p>
