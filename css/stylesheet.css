@@ -49,7 +49,7 @@ html, body{
 	color: #FF6600;
 }
 
-/* Login page style */
+/* Login and Register page style */
 
 .top{
 	background-image: url(../img/galileo.jpg);
@@ -70,7 +70,7 @@ html, body{
 	background-image: url(../img/2.jpg);
     background-size: cover;
     background-attachment: fixed;
-    background-position: 25% 50%;
+    background-position: 50% 50%;
     overflow: hidden;
     text-align: center;
     border-collapse: collapse;
@@ -80,18 +80,30 @@ html, body{
     position: relative;
 
 }
+ 
+ #mycanvas{
+
+ 	opacity: 0,5;
+
+ }
 
 .logo{
-	width: 50%;
-	margin-top: 5em;
+	width: 58%;
+	margin-top: 0%;
+	padding-left: 5%;
 }
-
+.logo1{
+	width: 48%;
+	margin-top: 0%;
+	padding-left: 5%;
+}
 .login{
 	bottom: 2em;
 	width: 100%;
 	z-index: 1000;
-	color: #e3e3e2;
-	margin-top: 12%;
+	color: #e3e3e3;
+	margin-top: 0%;
+
 }
 
 .cover_text #in{
@@ -125,6 +137,9 @@ html, body{
     background-color: #e3e3e3;
 
 }
+
+
+
 
 .alert-danger{
     z-index: 10000;
@@ -160,6 +175,7 @@ html, body{
 #iscte{
 	margin-bottom: 2em;
 }
+
 
 .footer{
 	width: 100%;

@@ -25,7 +25,7 @@
 		?>
 		
 		<div class="top1">
-			<img class="logo" src="">
+			<img class="logo1" src="img/logo.png">
 			
 			<?php
 				if(!isset($_SESSION['username'])){

@@ -25,8 +25,8 @@
 		?>
 		
 		<div class="top">
-			<img class="logo" src="">
-			
+
+			<img class="logo" src="img/logo.png">
 			<?php
 				if(!isset($_SESSION['username'])){
 					echo  '<div class="login">
