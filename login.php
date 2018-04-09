@@ -41,9 +41,10 @@
 						      	<input name="mypassword" type="password" class="form-control" id="pwd" placeholder="Introduzir password">
 						    </div>
 						    <button type="submit" class="btn btn-default">Enter</button>
+						    
 						</form>
 						</div>';
-				} else {
+					} else {
 					echo "<script>window.location = './main.php'</script>";
 					exit();
 				}
