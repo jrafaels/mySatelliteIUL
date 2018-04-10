@@ -22,7 +22,7 @@
 			$username = htmlentities(addslashes($_POST['myusername']));
 			$password = htmlentities(addslashes($_POST['mypassword']));	
 		
-			$user->login($username,$password, $ip);
+			$user->login($username,$password);
 			
 		}catch(Exception $e){
 			echo "Erro no login " . $e->GetMessage();	

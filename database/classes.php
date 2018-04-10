@@ -131,7 +131,7 @@
 		* Login
 		*
 		*/
-		public function login($username, $password, $ip){
+		public function login($username, $password){
 			
 			$sql = "SELECT * FROM user WHERE username=:username AND password=:password";
 			$resultado = $this->connection->prepare($sql);
@@ -149,11 +149,11 @@
 			if($num_registos!=0){
 				session_start();
 				$_SESSION["username"]=$username;
-				$this->logLogin($username, 1, $ip);
+				//$this->logLogin($username, 1, $ip);
 				header("location:index.php");
 			
 			}else{
-				$this->logLogin($username, 0, $ip);
+				//$this->logLogin($username, 0, $ip);
 				header("location:login.php");
 			}			
 			
