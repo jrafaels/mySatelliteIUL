@@ -84,12 +84,13 @@ html, body{
 	padding-left: 5%;
 }
 .login{
-	bottom: 2em;
+	bottom: 0.5em;
 	width: 100%;
 	z-index: 1000;
 	color: #e3e3e3;
 	margin-top: 0%;
-	background-color: black;
+	background-color: rgb(0,0,0,0.5);
+
 
 }
 
@@ -156,7 +157,7 @@ html, body{
 	margin: 0;
     position: relative;
     text-align: center;
-    margin-bottom: 1em;
+    margin-bottom: 0.3em;
 }
 
 #iscte{
