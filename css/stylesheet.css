@@ -52,7 +52,7 @@ html, body{
 /* Login and Register page style */
 
 .top{
-	background-image: url(/img/galileo.jpg);
+	background-image: url(../img/galileo.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-position: 75% 100%;
@@ -66,23 +66,9 @@ html, body{
 
 }
 
-.top1{
-	background-image: url(../img/2.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: 50% 50%;
-    overflow: hidden;
-    text-align: center;
-    border-collapse: collapse;
-    min-height: 100vh;
-    display: table;
-    width: 100%;
-    position: relative;
 
-}
  
  #mycanvas{
-
  	opacity: 0,5;
 
  }
@@ -104,7 +90,7 @@ html, body{
 	color: #e3e3e3;
 	margin-top: 0%;
 	background-color: black;
-	filter: blur(20%);
+
 }
 
 .cover_text #in{
