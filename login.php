@@ -12,26 +12,35 @@
 
 	<body>
 	<?php
-			//session_start();
-			//$error=$_GET['q'];
-			$error="a";
-			if($error == "login"){
-				echo '<div class="alert alert-danger">
+		require("database/classes.php");
+
+		if(isset($_POST["enviar"])){
+		
+		try{
+			$user = new User();
+		
+			$username = htmlentities(addslashes($_POST['myusername']));
+			$password = htmlentities(addslashes($_POST['mypassword']));	
+		
+			$user->login($username,$password);
+			
+		}catch(Exception $e){
+			echo "Erro no login " . $e->GetMessage();	
+			echo '<div class="alert alert-danger">
 					  	<strong>Alert!</strong> Username and/or Password are not correct!
 					  	<button type="button" class="close" onclick="location.href=\'index.php\'">&times;</button>
 					</div>';
-			}
+		}
+	}
 	
 		?>
 		
 		<div class="top">
 
 			<img class="logo" src="img/logo.png">
-			<?php
-				if(!isset($_SESSION['username'])){
-					echo  '<div class="login">
+			<div class="login">
 						<h2 class="cover_text"> Bem Vindo </h2>
-						<form role="form" method="post" action="checklogin.php">
+						<form role="form" method="post" action="">
 						    <div class="form-group">
 						    	<label for="email">Username:</label>
 						     	<input name="myusername" type="text" class="form-control" id="email" placeholder="Introduzir username">
@@ -40,15 +49,12 @@
 						      	<label for="pwd">Password:</label>
 						      	<input name="mypassword" type="password" class="form-control" id="pwd" placeholder="Introduzir password">
 						    </div>
-						    <button type="submit" class="btn btn-default">Enter</button>
+						    <button type="submit" name="enviar" class="btn btn-default">Enter</button>
 						    
 						</form>
-						</div>';
-					} else {
-					echo "<script>window.location = './main.php'</script>";
-					exit();
-				}
-			?>
+						</div>
+					
+					<!--<script>window.location = './main.php'</script>-->
 
 			<div class="footer">
 				<p id="footer_text">  ISCTE-IUL 2018 | SCDS | Professor: Francisco Cercas | Alunos: Carolina, Gonçalo e Jorge </p>
