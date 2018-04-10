@@ -52,7 +52,7 @@ html, body{
 /* Login and Register page style */
 
 .top{
-	background-image: url(../img/galileo.jpg);
+	background-image: url(/img/galileo.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-position: 75% 100%;
@@ -103,6 +103,7 @@ html, body{
 	z-index: 1000;
 	color: #e3e3e3;
 	margin-top: 0%;
+	background-color: black;
 
 }
 

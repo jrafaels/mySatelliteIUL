@@ -31,7 +31,7 @@
 				if(!isset($_SESSION['username'])){
 				
 					echo  '<div class="login">
-						<h2 class="cover_text"> REGISTARRR </h2>
+						<h2 class="cover_text"> Formulário de Registo </h2>
 						<form role="form" method="post" action=""> 
 						    <div class="form-group">
 						    	<label for="email">Username:</label>
