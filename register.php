@@ -60,10 +60,7 @@
 						</div>
 					
 					<!--<script>window.location = './main.php'</script>-->
-
-			<div class="footer">
-				<p id="footer_text">  ISCTE-IUL 2018 | SCDS | Professor: Francisco Cercas | Alunos: Carolina, Gonçalo e Jorge </p>
-			</div>
 		</div>
+		<?php  include "rodape.html"   ?>
 	</body>
 </html>
