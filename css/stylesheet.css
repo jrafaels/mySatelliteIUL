@@ -17,12 +17,17 @@ html, body{
 	background-color: rgba(0,17,27,0.65);
 	position: fixed;
 	z-index: 100;
+	background-image: url(../img/logo.png);
+	background-color: red;
+
 }
+
 
 
 
 /* MENU PAGE STYLE */
 .menu {
+  margin-top:10%;
   height: 100%;
   width: 20%;
   position: fixed;
