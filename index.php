@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+<?php include('menu.html') ?>
 
 <h1>ALOOOOOOOOOOOOOOOOOOOOOOOO</h1>
 <?php
