@@ -161,4 +161,24 @@
 
 	}
 	
+	class Satellite extends Connection{
+		
+		public function Satellite(){
+			parent::__construct();	
+		}
+		
+		/**
+		* Read TLE files from website https://www.celestrak.com
+		* URL: https://www.celestrak.com/NORAD/elements/$name.txt
+		*/
+		public function readWebFile($name){
+			$file = "https://www.celestrak.com/NORAD/elements/".$name.".txt";
+			$myfile = fopen($file, "r") or die("Unable to open file!");
+			echo fread($myfile,filesize($file));
+			fclose($myfile);
+			
+		}
+		
+	}
+	
 ?>
