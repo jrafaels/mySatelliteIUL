@@ -161,4 +161,70 @@
 
 	}
 	
+	class Satellite extends Connection{
+		
+		private $name;
+		private $number;
+		private $year;
+		
+		
+		public function Satellite(){
+			parent::__construct();	
+		}
+		
+		/**
+		* Read TLE files from website https://www.celestrak.com
+		* URL: https://www.celestrak.com/NORAD/elements/$name.txt
+		*/
+		
+		function get_catList()
+		{
+			$items = array();
+			$ch = curl_init("http://www.n2yo.com/satellites/");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+			$cl = curl_exec($ch);
+			$dom = new DOMDocument();
+			@$dom->loadHTML($cl);
+			$table = $dom->getElementById("categoriestab");
+			$rows = $table->getElementsByTagName('tr');
+
+			for($i=1; $i<50; $i++){
+				$cols = $rows->item($i)->getElementsByTagName('td');
+				$href = $cols->item(0)->getElementsByTagName('a');
+				$items[$i] = array();
+				$items[$i][0] = $cols->item(0)->textContent;
+				$first = explode( '=' , $href->item(0)->getAttribute( 'href' ) );
+				$items[$i][1] = $first[1];
+			}
+			$options='';
+			for($i=1; $i<=sizeof($items); $i++){
+				$options.=$items[$i][1].'    '.$items[$i][0].'<br>';
+			}
+			return $options;
+		} 
+	
+		function get_satList($v)
+		{
+			$items = array();
+			$ch = curl_init("http://www.n2yo.com/satellites/?c=".$v);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+			$cl = curl_exec($ch);
+			$dom = new DOMDocument();
+			@$dom->loadHTML($cl);
+			$table = $dom->getElementById("categoriestab");
+			$rows = $table->getElementsByTagName('tr');
+			for($i=0; $i<$rows->length; $i++){
+				$cols = $rows->item($i)->getElementsByTagName('td');
+				$items[$i] = $cols->item(0)->textContent;
+			}	
+			$options='';
+			while(list($k,$v)=each($items))
+			{
+				$options.=$k.'    '.$v.'<br>';
+			}	
+			return $options;     
+		}
+		
+	}
+	
 ?>
