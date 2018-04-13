@@ -519,3 +519,15 @@ table tr:nth-child(odd) {
 		margin-top: 0.5em;
 	}
 }
+
+/* ------PERFIL SATELITE------ */
+	.main{
+		float: right;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.media{
+		display: grid;
+		grid-template-rows: 2fr;
+	}
