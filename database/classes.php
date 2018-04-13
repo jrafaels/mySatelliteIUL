@@ -225,6 +225,49 @@
 			return $options;     
 		}
 		
+		function get_info($x)
+    {
+        global $flag;
+        $url = 'http://www.n2yo.com/satellite/?s='.$x;
+        $items = array();
+        $content = file_get_contents($url);
+        $first_step = explode( 'NORAD ID' , $content );
+        $second_step = explode('<br/>' , $first_step[1] );
+        $third_step = explode('<a class' , $second_step[2] );
+        $fourth_step = explode(": ", $third_step[0]);
+        $fith_step = explode("<B>", $fourth_step[0]);
+        $sixth_step = explode("</B>", $fith_step[1]);
+        $itemss = $sixth_step[0];
+
+        for($i=0; $i<11; $i++){
+            if($itemss == 'Perigee'){
+                $flag = 's';
+                if($i==8){
+                    $first_step = explode( 'NORAD ID' , $content );
+                    $second_step = explode('<br/>' , $first_step[1] );
+                    $third_step = explode('<a class' , $second_step[$i] );
+                    $fourth_step = explode(": ", $third_step[0]);
+                    $fith_step = explode('<a href', $fourth_step[1]);
+                    $sixth_step = explode(">", $fith_step[1]);
+                    $items[$i] = $sixth_step[1];
+                }
+                else{
+                    $first_step = explode( 'NORAD ID' , $content );
+                    $second_step = explode('<br/>' , $first_step[1] );
+                    $third_step = explode('<a class' , $second_step[$i] );
+                    $fourth_step = explode(": ", $third_step[0]);
+                    $items[$i] = $fourth_step[1];
+                }
+
+            }
+            else {
+                $flag = 'n';
+                $items[$i] = 'Sem Informação Disponível';
+            }
+        }
+        return $items;
+    }
+		
 	}
 	
 ?>
