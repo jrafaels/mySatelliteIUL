@@ -12,8 +12,13 @@
 	require('database/classes.php');
 	
 	$aux = new Satellite();
-	$aux->readWebFile("goes");
-
+	//$aux->readWebFile("goes");
+	$list = $aux->get_catList();
+	
+	echo $list;
+	
+	$list = $aux->get_satList(3);
+	echo $list;
 ?>
 </body>
 </html>
