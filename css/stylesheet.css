@@ -22,48 +22,56 @@ html, body{
 
 
 /* MENU PAGE STYLE */
-*{
-	margin: 0;
-	padding: 0;
+.menu {
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  top: 0;
+  background-color: #222;
+  overflow-x: hidden; 
 }
-.menu{
-	height: 100%;
-	position: fixed;
-	background-color: #222;
-	top:0;
-	overflow: hidden;
-	transition: all;
-	}
-
-#principal{
-	width: 20%;
-}
-
-ul{
-list-style: none
-} 
-
-ul li a{
-	display: block;
-	font-size: 18px;
-	padding: 10px;
-	border-bottom: solid;
-	color:  #5b859a;
-	text-decoration: none;
-
-}
-ul li span{
-	float: right;
-	
+.menu a, .dropdown-btn {
+ padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color:#5b859a;
+  display: block;
+  border-bottom: solid;
+  background: none;
+  width:100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right:none;  
 }
 
-ul li a:hover{
-	color: #e3e3e3;
-	margin-top:0.5%;
+.menu a:hover, .dropdown-btn:hover {
+   color: #e3e3e3;
+  margin-top:0.5%;
 }
 
+.main {
+  margin-left: 200px;
+  font-size: 20px; 
+  padding: 0px 10px;
+}
 
+.active {
+  background-color: #222;
+  color: white;
+}
 
+.dropdown-container {
+  display: none;
+  background-color: #222;
+  padding-left: 8px;
+}
+
+.fa-caret-down {
+  float: right;
+}
 
 /* Login and Register page style */
 
