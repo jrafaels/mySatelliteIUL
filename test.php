@@ -19,6 +19,10 @@
 	
 	$list = $aux->get_satList(3);
 	echo $list;
+	
+	$list = $aux->get_info(39574);
+	foreach($list as $a)
+		echo $a."<br>";
 ?>
 </body>
 </html>
