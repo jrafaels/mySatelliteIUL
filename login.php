@@ -56,6 +56,6 @@
 					
 					<!--<script>window.location = './main.php'</script>-->
 		</div>
-		<?php  include "rodape.html"   ?>
+		<?php  include "rodape.php"   ?>
 	</body>
 </html>

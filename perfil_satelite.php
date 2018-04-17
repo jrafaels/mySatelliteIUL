@@ -7,19 +7,22 @@
 </head>
 
 <body>
-<?php include("menu.html") ?>
+<?php
+	include('cabecalho.php');
+	include('menu.php');
+?>
 <div class="main">
-  <div id="info">
+  <div class="info">
     <h2>Informação do Satélite:</h2>
-    <?php
+    <!--<?php
 
 	require('database/classes.php');
 	
 	$aux = new Satellite();
 	
 	$list = $aux->get_info(39574);
-	?>
-    <table id="table1">
+	?>-->
+    <table class="table1">
       <tr>
         <td>Nome do Satélite:</td>
         <td>PUTAAAAAAAAAAAA</td>
@@ -85,10 +88,12 @@
       </tr>
     </table>
   </div>
-  <div id="media">
-    <div id="sateliteImg"><img src="img/satelite2.jpg"/></div>
-    <div id="rota"><img src="img/satelite2.jpg"></div>
-  </div>
+    <div class="image">
+      <img src="img/satelite2.jpg"/>
+    </div>
+    <div class="rota">
+      <img src="img/satelite2.jpg">
+    </div>
 </div>
 
 </body>
