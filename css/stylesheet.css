@@ -50,6 +50,7 @@ html, body{
   background-color: #222;
   overflow-x: hidden; 
   padding-top: 0%;
+
 }
 .menu a, .dropdown-btn {
  padding: 6px 8px 6px 16px;
@@ -66,6 +67,7 @@ html, body{
   border-top: none;
   border-left: none;
   border-right:none;  
+
 }
 
 .menu a:hover, .dropdown-btn:hover {
