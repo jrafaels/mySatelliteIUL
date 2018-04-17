@@ -88,14 +88,12 @@
       </tr>
     </table>
   </div>
-  <div class="image">
-    <div class="sateliteImg">
+    <div class="image">
       <img src="img/satelite2.jpg"/>
     </div>
     <div class="rota">
       <img src="img/satelite2.jpg">
     </div>
-  </div>
 </div>
 
 </body>
