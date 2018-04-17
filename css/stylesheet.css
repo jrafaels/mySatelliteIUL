@@ -12,17 +12,12 @@ html, body{
 }
 
 
-
-
- 
-
-
 /* Menu e Header page style*/
 .cabecalho{
  	width: 100%;
 	height: 8%;
 	background-color: #222;
-	position: fixed;
+	position: absolute;
  }
 
 #user{
@@ -45,7 +40,7 @@ html, body{
   margin-top:0%;
   height: 100%;
   width: 20%;
-  position: fixed;
+  position: absolute;
   top: 0;
   background-color: #222;
   overflow-x: hidden; 
@@ -542,7 +537,7 @@ table tr:nth-child(odd) {
 }
 
 /* ------PERFIL SATELITE------ */
-		.main{
+	.main{
 		width: 100%;
 		height: 100%;
 		display: grid;
@@ -560,6 +555,11 @@ table tr:nth-child(odd) {
 	.info{
 		grid-area: info;
 		background: red;
+	}
+
+	.table1{
+		width: 70%;
+		height: 100%;
 	}
 
 	.image{
