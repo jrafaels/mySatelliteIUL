@@ -14,14 +14,11 @@
 <div class="main">
   <div class="info">
     <h2>Informação do Satélite:</h2>
-    <!--<?php
-
-	require('database/classes.php');
-	
+    <?php	
 	$aux = new Satellite();
 	
 	$list = $aux->get_info(39574);
-	?>-->
+	?>
     <table class="table1">
       <tr>
         <td>Nome do Satélite:</td>

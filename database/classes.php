@@ -126,6 +126,24 @@
 			
 			return $idlist[0];
 		}
+		
+		/**
+		* Return user
+		*/
+		public function getUser($username){
+			$sql = "SELECT * FROM user WHERE username=:username";
+		
+			$resultado = $this->connection->prepare($sql);
+		
+			$resultado->bindValue(":username", $username);
+		
+			$resultado->execute(array(":username"=>$username));
+			$user = $resultado->fetch();
+			
+			$resultado->closeCursor();
+
+			return $user;
+		}
 	
 		/**
 		* Login
