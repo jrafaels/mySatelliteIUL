@@ -85,11 +85,11 @@
       </tr>
     </table>
   </div>
-  <div id="image">
-    <div id="sateliteImg">
+  <div class="image">
+    <div class="sateliteImg">
       <img src="img/satelite2.jpg"/>
     </div>
-    <div id="rota">
+    <div class="rota">
       <img src="img/satelite2.jpg">
     </div>
   </div>
