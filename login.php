@@ -11,7 +11,13 @@
 	</head>
 
 	<body>
-	<?php
+		
+		<div class="top">
+
+			<img class="logo" src="img/logo.png">
+			<div class="login">
+						<h2 class="cover_text"> Bem Vindo </h2>
+						<?php
 		require("database/classes.php");
 
 		if(isset($_POST["enviar"])){
@@ -26,20 +32,11 @@
 			
 		}catch(Exception $e){
 			echo "Erro no login " . $e->GetMessage();	
-			echo '<div class="alert alert-danger">
-					  	<strong>Alert!</strong> Username and/or Password are not correct!
-					  	<button type="button" class="close" onclick="location.href=\'index.php\'">&times;</button>
-					</div>';
+			alerts::getRedCallout("Erro no Login", "Erro desconhecido.");
 		}
 	}
 	
 		?>
-		
-		<div class="top">
-
-			<img class="logo" src="img/logo.png">
-			<div class="login">
-						<h2 class="cover_text"> Bem Vindo </h2>
 						<form role="form" method="post" action="">
 						    <div class="form-group">
 						    	<label for="email">Username:</label>

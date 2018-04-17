@@ -172,7 +172,7 @@
 			
 			}else{
 				//$this->logLogin($username, 0, $ip);
-				header("location:login.php");
+				alerts::getRedCallout("Erro no Login", "Username e/ou password estão incorretos.");
 			}			
 			
 		}	
@@ -286,6 +286,29 @@
         return $items;
     }
 		
+	}
+	
+	class Alerts{
+		
+		/**
+		* @param @title - Title of callout
+		* @param @msg - Message of callour
+		*/
+		public static function getRedCallout($title, $msg){
+			echo "<div class=\"alert alert-danger\">
+                <h4>". $title ."</h4>
+
+                <p>". $msg ."</p>
+              </div>";
+		}
+		
+		public static function getGreenCallout($title, $msg){
+			echo "<div class=\"alert alert-success\">
+                <h4>". $title ."</h4>
+
+                <p>". $msg ."</p>
+              </div>";
+		}
 	}
 	
 ?>
