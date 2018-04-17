@@ -7,7 +7,10 @@
 </head>
 
 <body>
-<?php include("menu.html") ?>
+<?php
+	include('cabecalho.php');
+	include('menu.php');
+?>
 <div class="main">
   <div class="info">
     <h2>Informação do Satélite:</h2>

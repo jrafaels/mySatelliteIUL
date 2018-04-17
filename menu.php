@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-
-<html>
-  <head>
-    <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
-    <meta charset="utf-8">
-  </head>
-
-  <body>
-    <div class="cabecalho">
-      <a href=""><img id="user" src="img/man.png"></a>
-     </div>
     <div class="menu">
       <img id="logoCabecalho" src="img/logo.png">
 
@@ -43,7 +31,4 @@
       });
     }
   </script>
-   
-</body>
-</html>
 
