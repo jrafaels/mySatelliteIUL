@@ -180,11 +180,8 @@
 	}
 	
 	class Satellite extends Connection{
-		
-		private $name;
-		private $number;
-		private $year;
-		
+		private $flag;
+		public $items = array();
 		
 		public function Satellite(){
 			parent::__construct();	
@@ -195,6 +192,25 @@
 		* URL: https://www.celestrak.com/NORAD/elements/$name.txt
 		*/
 		
+		/**
+		* Get número de satélites por categoria
+		*/
+    	function get_satListSize($v)
+    	{
+        	$items = array();
+        	$ch = curl_init("http://www.n2yo.com/satellites/?c=".$v);
+        	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        	$cl = curl_exec($ch);
+        	$dom = new DOMDocument();
+        	@$dom->loadHTML($cl);
+        	$table = $dom->getElementById("categoriestab");
+        	$rows = $table->getElementsByTagName('tr');
+        	return $rows->length;   
+    	}
+		
+		/**
+		* Get lista de categorias
+		*/
 		function get_catList()
 		{
 			$items = array();
@@ -221,6 +237,9 @@
 			return $options;
 		} 
 	
+		/**
+		* Get lista de satélites por categoria
+		*/
 		function get_satList($v)
 		{
 			$items = array();
@@ -242,16 +261,27 @@
 			}	
 			return $options;     
 		}
-		
-		function get_info($x)
+				
+		/**
+		* Get infos de um satélite
+		*/
+		function find_info($x)
     {
-        global $flag;
+		$id = $x;
         $url = 'http://www.n2yo.com/satellite/?s='.$x;
-        $items = array();
         $content = file_get_contents($url);
-        $first_step = explode( 'NORAD ID' , $content );
-        $second_step = explode('<br/>' , $first_step[1] );
-        $third_step = explode('<a class' , $second_step[2] );
+		
+		//Nome do satélite
+		$first_step = explode( 'NORAD ID' , $content);
+        $second_step = explode('Track ' , $first_step[0]);
+        $third_step = explode('now' , $second_step[1]);
+		$items[0] = $third_step[0];
+				
+		//Ver se tem informação disponível
+		//Se tiver o perigeu, tem
+        $first_step = explode( 'NORAD ID' , $content);
+        $second_step = explode('<br/>' , $first_step[1]);
+        $third_step = explode('<a class' , $second_step[2]);
         $fourth_step = explode(": ", $third_step[0]);
         $fith_step = explode("<B>", $fourth_step[0]);
         $sixth_step = explode("</B>", $fith_step[1]);
@@ -267,14 +297,14 @@
                     $fourth_step = explode(": ", $third_step[0]);
                     $fith_step = explode('<a href', $fourth_step[1]);
                     $sixth_step = explode(">", $fith_step[1]);
-                    $items[$i] = $sixth_step[1];
+                    $items[$i+1] = $sixth_step[1];
                 }
                 else{
                     $first_step = explode( 'NORAD ID' , $content );
                     $second_step = explode('<br/>' , $first_step[1] );
                     $third_step = explode('<a class' , $second_step[$i] );
                     $fourth_step = explode(": ", $third_step[0]);
-                    $items[$i] = $fourth_step[1];
+                    $items[$i+1] = $fourth_step[1];
                 }
 
             }
@@ -283,10 +313,48 @@
                 $items[$i] = 'Sem Informação Disponível';
             }
         }
-        return $items;
-    }
-		
 	}
+
+	public function getName(){
+		return $this->$items[0];
+	}
+
+	public function getNorad(){
+		return $this->$items[1];
+	}
+	
+	public function getCode(){
+		return $this->$items[2];
+	}
+	
+	public function getPerigee(){
+		return $this->$items[3];
+	}
+	
+	public function getApogee(){
+		return $this->$items[4];
+	}
+	
+	public function getInclination(){
+		return $this->$items[5];
+	}
+	
+	public function getPeriod(){
+		return $this->$items[6];
+	}
+	
+	public function getSemiMajor(){
+		return $this->$items[7];
+	}
+	
+	public function getLaunchDate(){
+		return $this->$items[9];
+	}
+	
+	public function getSource(){
+		return $this->$items[10];
+	}
+}
 	
 	class Alerts{
 		
