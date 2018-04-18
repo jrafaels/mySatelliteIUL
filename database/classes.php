@@ -181,7 +181,7 @@
 	
 	class Satellite extends Connection{
 		private $flag;
-		public $items = array();
+		private $items = array();
 		
 		public function Satellite(){
 			parent::__construct();	
@@ -275,7 +275,7 @@
 		$first_step = explode( 'NORAD ID' , $content);
         $second_step = explode('Track ' , $first_step[0]);
         $third_step = explode('now' , $second_step[1]);
-		$items[0] = $third_step[0];
+		$this->items[0] = $third_step[0];
 				
 		//Ver se tem informação disponível
 		//Se tiver o perigeu, tem
@@ -297,62 +297,62 @@
                     $fourth_step = explode(": ", $third_step[0]);
                     $fith_step = explode('<a href', $fourth_step[1]);
                     $sixth_step = explode(">", $fith_step[1]);
-                    $items[$i+1] = $sixth_step[1];
+                    $this->items[$i+1] = $sixth_step[1];
                 }
                 else{
                     $first_step = explode( 'NORAD ID' , $content );
                     $second_step = explode('<br/>' , $first_step[1] );
                     $third_step = explode('<a class' , $second_step[$i] );
                     $fourth_step = explode(": ", $third_step[0]);
-                    $items[$i+1] = $fourth_step[1];
+                    $this->items[$i+1] = $fourth_step[1];
                 }
 
             }
             else {
                 $flag = 'n';
-                $items[$i] = 'Sem Informação Disponível';
+                $this->items[$i] = 'Sem Informação Disponível';
             }
         }
 	}
 
 	public function getName(){
-		return $this->$items[0];
+		return $this->items[0];
 	}
 
 	public function getNorad(){
-		return $this->$items[1];
+		return $this->items[1];
 	}
 	
 	public function getCode(){
-		return $this->$items[2];
+		return $this->items[2];
 	}
 	
 	public function getPerigee(){
-		return $this->$items[3];
+		return $this->items[3];
 	}
 	
 	public function getApogee(){
-		return $this->$items[4];
+		return $this->items[4];
 	}
 	
 	public function getInclination(){
-		return $this->$items[5];
+		return $this->items[5];
 	}
 	
 	public function getPeriod(){
-		return $this->$items[6];
+		return $this->items[6];
 	}
 	
 	public function getSemiMajor(){
-		return $this->$items[7];
+		return $this->items[7];
 	}
 	
 	public function getLaunchDate(){
-		return $this->$items[9];
+		return $this->items[9];
 	}
 	
 	public function getSource(){
-		return $this->$items[10];
+		return $this->items[10];
 	}
 }
 	

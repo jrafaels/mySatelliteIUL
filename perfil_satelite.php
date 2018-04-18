@@ -40,7 +40,7 @@
       </tr>
       <tr>
         <td>Período:</td>
-        <td><?php echo $sat->getPeriod ?></td>
+        <td><?php echo $sat->getPeriod() ?></td>
       </tr>
       <tr>
         <td>Perigeu (altura):</td>
