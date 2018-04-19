@@ -13,7 +13,6 @@
 ?>
 <div class="main">
   <div class="info">
-    <h2>Informação do Satélite:</h2>
     <?php	
 	$sat = new Satellite();
 	
