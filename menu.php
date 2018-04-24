@@ -9,7 +9,7 @@
         <a href="#">MEO</a>
         <a href="#">LEO</a>
       </div>
-      <a href="#">O meu Perfil</a>
+      <a href="catList.php">Categorias</a>
       <a href="#">Contactos</a>
       <a href="logout.php">Logout</a>
      
