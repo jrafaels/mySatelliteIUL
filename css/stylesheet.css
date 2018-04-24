@@ -569,7 +569,7 @@ table tr:nth-child(odd) {
     	margin-right:auto;
     }
 
-    .tle{
+    .mainTLE{
     	color: #fff;
 		border-radius: 5px;
 		padding: 20px;
