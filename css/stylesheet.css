@@ -1,0 +1,619 @@
+/* All pages style */
+
+html, body{
+	color:#FFF;
+	font-family:"Lucida Sans Unicode","Lucida Grande",sans-serif;
+	font-size:18px;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding:0;
+	overflow: auto;
+}
+
+
+/* Menu e Header page style*/
+.cabecalho{
+ 	width: 100%;
+	height: 8%;
+	background-color: #222;
+	position: relative;
+ }
+
+#user{
+	width: 2%;
+	padding-top: 1%;
+	float:right;
+	padding-right: 4%;
+
+}
+
+#logoCabecalho{
+	width:120%;
+	padding-top: 2%;
+	float: left;
+}
+
+
+
+.menu {
+  margin-top:0%;
+  height: 92%;
+  width: 20%;
+  position: relative;
+  top: 0;
+  background-color: #222;
+  overflow-x: hidden; 
+  padding-top: 0%;
+
+}
+.menu a, .dropdown-btn {
+ padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color:#5b859a;
+  display: block;
+  border-bottom: solid;
+  background: none;
+  width:100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right:none;  
+
+}
+
+.menu a:hover, .dropdown-btn:hover {
+   color: #e3e3e3;
+  margin-top:0.5%;
+}
+
+.main {
+  margin-left: 200px;
+  font-size: 20px; 
+  padding: 0px 10px;
+}
+
+.active {
+  background-color: #222;
+  color: white;
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #222;
+  padding-left: 8px;
+}
+
+.fa-caret-down {
+  float: right;
+}
+
+/* Login and Register page style */
+
+.top{
+	background-image: url(../img/galileo.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 75% 100%;
+    overflow: hidde*{
+	margin: 0;
+	padding: 0;
+}
+.menu{
+	height: 100%;
+	position: fixed;
+	background-color: #222;
+	top:0;
+	overflow: hidden;
+	transition: all;
+	}
+
+#principal{
+	width: 20%;
+}
+
+ul{
+list-style: none
+} 
+
+ul li a{
+	display: block;
+	font-size: 18px;
+	padding: 10px;
+	border-bottom: solid;
+	color:  #5b859a;
+	text-decoration: none;
+
+}
+ul li span{
+	float: right;
+	
+}
+
+ul li a:hover{
+	color: #e3e3e3;
+	margin-top:0.5%;
+}
+
+n;
+    text-align: center;
+    border-collapse: collapse;
+    min-height: 100vh;
+    display: table;
+    width: 100%;
+    position: relative;
+
+}
+
+ #mycanvas{
+ 	opacity: 0,5;
+
+ }
+
+.logo{
+	width: 58%;
+	margin-top: 0%;
+	padding-left: 5%;
+}
+
+.logo1{
+	width: 48%;
+	margin-top: 0%;
+	padding-left: 5%;
+}
+
+.login{
+	bottom: 0.5em;
+	width: 100%;
+	z-index: 1000;
+	color: #e3e3e3;
+	margin-top: 0%;
+	background-color: rgb(0,0,0,0.5);
+}
+
+.register{
+	bottom: 0.5em;
+	width: 100%;
+	z-index: 1000;
+	color: #e3e3e3;
+	margin-top: 0%;
+	background-color: rgb(0,0,0,0.5);
+}
+
+.cover_text #in{
+	margin-bottom: 2em;
+}
+
+#in{
+	bottom: 5em;
+}
+
+.cover_button{
+    text-decoration: none;
+    background-color: #ff6600;
+    padding: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.cover_button:hover{
+	text-decoration: none;
+	color: #FFF;
+}
+
+#left{
+    margin-right: 5%;
+}
+
+.form-control{
+	width: 20%;
+    margin-left: 40%;
+    background-color: #e3e3e3;
+
+}
+
+
+
+
+.alert-danger{
+    z-index: 10000;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    margin: 0;
+    color: #a00000;
+    background-color: #ff4d4d;
+    border-color: #ff1a1a;
+    padding: 5px;
+}
+
+#name{
+	margin-top: 2em;
+}
+
+.title{
+    position: relative;
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.cover_text{
+	margin: 0;
+    position: relative;
+    text-align: center;
+    margin-bottom: 0.3em;
+}
+
+#iscte{
+	margin-bottom: 2em;
+}
+
+
+.footer{
+	width: 100%;
+	height: 10%;
+	position: absolute;
+	bottom: 0;
+	z-index: 100;
+}
+
+#footer_text{
+	margin: 0;
+	float: left;
+	font-size: 10px;
+	padding-left: 10px;
+}
+
+
+
+
+
+/* Main page style */
+
+.main{
+	height: 95vh;
+	width: 70%;
+	float: left;
+	margin-top: 2.5vh;
+}
+
+.manual, .satellite{
+	width: 100%;
+	height: 100%;
+	/*margin-top: 2em;*/
+	color: #000;
+}
+
+.table{
+	height: 70%;
+	overflow: auto;
+}
+
+table {
+    width:80%;
+    margin-left: 10%;
+    color: #000;
+    border-spacing: 0px 0px;
+    text-align: center;
+}
+
+table th{
+    color: #FF6633;
+}
+
+table tr:nth-child(even) {
+    background-color: #eee;
+}
+table tr:nth-child(odd) {
+   background-color:#fff;
+}
+
+.table_text{
+   margin: 10px 0px;
+}
+
+#pointer{
+	cursor: pointer;
+	background-color: #FF9933;
+    border-radius: 5px;
+    width: 70%;
+    color: #FFF;
+    margin-left: 15%;
+    font-size: 0.8em;
+    border: 1px solid #FF6633;
+}
+
+#pointerNull{
+	background-color: #909090;
+    border-radius: 5px;
+    width: 70%;
+    color: #FFF;
+    margin-left: 15%;
+    font-size: 0.8em;
+    border: 1px solid #707070;
+}
+
+#tracking_title{
+	color: #FF6633;
+    text-align: center;
+}
+
+.satellite_info{
+	height: 30%;
+	width: 80%;
+	margin-left: 10%;
+}
+
+#current, #next{
+	width: 50%;
+	float: left;
+}
+
+.current_info{
+	margin: 0;
+	margin-left: 5%;
+}
+
+#current_name, #current_name2{
+	text-align: center;
+	margin: 10px;
+}
+
+.main_title{
+	text-align: center;
+	font-variant: small-caps;
+	color: #FF6633;
+    margin-top: 2em;
+}
+
+.main_form{
+	width: 50%;
+	margin-left: 25%;
+}
+
+.main_label{
+	color: #000;
+}
+
+#right{
+	float: right;
+}
+
+#main_form{
+	margin-bottom: 1em;
+}
+
+#main_form .form-control{
+	margin-left: 0;
+	width: auto;
+}
+
+.main_button{
+	width: 20%;
+	margin-left: 40%;
+}
+
+.side_menu{
+	height: 100vh;
+	width: 30%;
+	float: left;
+	background-color: #404040;
+	box-shadow: -3px 0px 5px #888888;
+}
+
+.general_info{
+	width: 100%;
+	margin-top: 3em;
+}
+
+.side_title{
+	text-align: center;
+	color: #FF6633;
+	font-variant: small-caps;
+}
+
+.side_info{
+	margin-left: 5%;
+}
+
+.buttons{
+	position: absolute;
+	width: 30%;
+}
+
+.side_button{
+	width: 100%;
+	border-top: 1px solid #888888;
+	border-right: 1px solid #888888;
+	border-bottom: 1px solid #101010;
+	border-left: 1px solid #101010;
+	height: 2.5em;
+}
+
+.button_text{
+	text-align: center;
+    width: 100%;
+    text-decoration: none;
+    color: #FFF;
+    position: absolute;
+    margin-top: 0.5em;
+}
+
+.button_text:hover{
+	color: #FF6633;
+}
+
+.side_footer{
+	position: absolute;
+    bottom: 0;
+}
+
+.general_info .img_footer{
+	width: 90%;
+    margin-left: 5%;
+    float: none;
+}
+
+.side_footer .img_footer{
+	width: 70%;
+    margin-left: 15%;
+    float: none;
+}
+
+.side_footer #footer_text{
+	margin-bottom: 1em;
+	float: none;
+	margin-top: 0;
+	text-align: center;
+}
+
+/* Size variations */
+
+@media (max-height: 750px) and (min-height: 650px) {
+	html, body{
+		font-size: 16px;
+	}
+
+	#footer_text{
+		margin-top: 5em;
+	}
+}
+
+@media (max-height: 650px) and (min-height: 620px) {
+	html, body{
+		font-size: 15px;
+	}
+
+	.top{
+		background-position: 75% 75%;
+	}
+
+	.side_info{
+		margin: 0;
+		margin-left: 5%;
+	}
+
+	#footer_text{
+		margin-top: 4em;
+	}
+
+	.table{
+		height: 65%;
+	}
+
+	.main_title{
+		margin-top: 0.5em;
+	}
+}
+
+@media (max-height: 620px) {
+	html, body{
+		font-size: 13px;
+	}
+
+	.top{
+		background-position: 75% 75%;
+	}
+
+	.side_info{
+		margin: 0;
+		margin-left: 5%;
+	}
+
+	#footer_text{
+		margin-top: 4em;
+	}
+
+	.table{
+		height: 60%;
+	}
+
+	.main_title{
+		margin-top: 0.5em;
+	}
+}
+
+/* ------PERFIL SATELITE------ */
+	.main{
+		position: relative;
+		float: right;
+		top: -94.5%;
+		width: 79%;
+		height: 92%;
+
+		display: grid;
+		grid-template-columns: 50% 50%;
+		background-color: #e3e3e3;
+	}
+
+	.info{
+		color: #fff;
+		border-radius: 5px;
+		padding: 20px;
+		grid-column: 1/2;
+	}
+
+	.table1{
+		opacity: 0.7;
+		font-size: 14px;
+		width: 100%;
+		height: 100%;	
+		margin-left:auto; 
+    	margin-right:auto;
+    }
+
+	.tableLista{
+		opacity: 0.7;
+		font-size: 14px;
+		width: 150%;
+		height: 25%;
+		padding: 20%;	
+	
+    }
+    #tituloLista{
+    	color: red;
+    }
+
+    .media{
+    	padding: 20px;
+    	grid-column: 2/3;
+
+    	display: grid;
+    	grid-template-rows: 50% 50%;
+    }
+
+	img{
+		display: block;
+		max-width: 100%;
+   		max-height: 100%;
+	}
+	.image{
+		margin: auto;
+		max-width:100%;
+		max-height:100%;
+		grid-row: 1/2;
+	}
+
+	.rota{
+		margin: auto;
+		max-width:100%;
+		max-height:100%;
+		grid-row: 2/3;
+	}
+
+	th, td {
+		width: auto;
+		height: auto;
+   		border-bottom: 1px solid #ddd;
+	}
+
+	td {
+		background-color: lightgray;
+	}
+
+
