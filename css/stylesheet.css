@@ -548,14 +548,14 @@ table tr:nth-child(odd) {
 
 		display: grid;
 		grid-template-columns: 50% 50%;
-		grid-template-rows: 50% 50%;
+		grid-template-rows: 45% 55%;
 		background-color: gray;
 	}
 
 	.info{
 		color: #fff;
 		border-radius: 5px;
-		padding: 20px;
+		padding: 5px;
 		grid-column: 1/2;
 		grid-row: 1/2:;
 	}
@@ -572,11 +572,62 @@ table tr:nth-child(odd) {
     .mainTLE{
     	color: #fff;
 		border-radius: 5px;
-		padding: 20px;
-    	grid-row: 2/3:;
+		padding: 5px;
+    	grid-row: 2/3;
+
+    	display: grid;
+    	grid-template-columns: 50% 50%;
+		grid-template-rows: 15% 85%;
     }
 
-    .tableTLE{
+    .dataTLE{
+    	opacity: 0.7;
+		font-size: 14px;
+		width: 100%;
+		height: 100%;
+		margin-left:auto; 
+    	margin-right:auto;
+
+    	grid-column: 1/3;
+    	grid-row: 1/2;
+    }
+
+     .tableTLE1{
+     	background-color: #f2f2f2;
+    	opacity: 0.7;
+		font-size: 14px;
+		width: 100%;
+		height: 100%;	
+		margin-left:auto; 
+    	margin-right:auto;
+    }
+
+    .TLE{
+    	color: #fff;
+		border-radius: 5px;
+		padding: 5px;
+    	grid-column: 1/2;
+    	grid-row: 2/3;
+    }
+
+    .tableTLE2{
+    	opacity: 0.7;
+		font-size: 14px;
+		width: 100%;
+		height: 100%;	
+		margin-left:auto; 
+    	margin-right:auto;
+    }
+
+    .coordenadas{
+    	color: #fff;
+		border-radius: 5px;
+		padding: 5px;
+    	grid-column: 2/3;
+    	grid-row: 2/3;
+    }
+
+    .tableCoordenadas{
     	opacity: 0.7;
 		font-size: 14px;
 		width: 100%;
@@ -586,7 +637,7 @@ table tr:nth-child(odd) {
     }
 
     .media{
-    	padding: 20px;
+    	padding: 5px;
     	grid-column: 2/3;
     	grid-row: 1/3;
 
