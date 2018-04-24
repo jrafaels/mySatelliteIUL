@@ -183,6 +183,8 @@
 		private $flag;
 		private $items = array();
 		
+		private $earthRadius = 6378;
+		
 		public function Satellite(){
 			parent::__construct();	
 		}
@@ -353,6 +355,55 @@
 	
 	public function getSource(){
 		return $this->items[10];
+	}
+	
+	public function getPerigeeRadius(){
+		$a = explode(" ",$this->getPerigee());
+		$b = floatval(str_replace(',', '', $a[0]));
+		return $b+$this->earthRadius;
+	}
+	
+	public function getApogeeRadius(){
+		$a = explode(" ",$this->getApogee());
+		$b = floatval(str_replace(',', '', $a[0]));
+		return $b+$this->earthRadius;
+	}
+	
+	public function getExcentricity(){
+		$a = $this->getApogeeRadius()-$this->getPerigeeRadius();
+		$b = $this->getApogeeRadius()+$this->getPerigeeRadius();
+		return $a/$b;
+	}
+	
+	public function getSemiMinor(){
+		$a = explode(" ",$this->getSemiMajor());
+		$b = floatval(str_replace(',', '', $a[0]));
+		$c = $b * sqrt(1-(pow($this->getExcentricity(),2)));
+		return round($c,3);
+	}
+	
+	public function getAzimute(){
+		return "Sem informação disponível";
+	}
+	
+	public function getElevation(){
+		return "Sem informação disponível";
+	}
+	
+	public function getCoordenates(){
+			
+	}
+	
+	public function getLatitude(){
+			
+	}
+	
+	public function getLongitude(){
+			
+	}
+	
+	public function getAltitude(){
+			
 	}
 }
 	

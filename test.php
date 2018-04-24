@@ -14,13 +14,13 @@
 	$aux = new Satellite();
 	//$aux->readWebFile("goes");
 	
-	$aux->get_info(43199);
+	//$aux->get_info(43199);
 	
-	/*
+	
 	$list = $aux->get_catList();
 	
 	echo $list;
-	
+	/*
 	$list = $aux->get_satList(3);
 	echo $list;
 	

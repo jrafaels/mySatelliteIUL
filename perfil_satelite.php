@@ -16,8 +16,8 @@
   <div class="info">
     <?php	
 	$sat = new Satellite();
-	
-	$sat->find_info(43226);
+	$satId = $_GET['satId'];
+	$sat->find_info($satId);
 	?>
     <table class="table1">
       <tr>
@@ -61,27 +61,27 @@
       <!-- TLE -->
       <tr>
         <td>Raio do Perigeu (rp):</td>
-        <td>Tudo Puta</td>
+        <td><?php echo $sat->getPerigeeRadius() ?> km</td>
       </tr>
       <tr>
         <td>Raio do Apogeu (ra):</td>
-        <td>Tudo Puta</td>
+        <td><?php echo $sat->getApogeeRadius() ?> km</td>
       </tr>
       <tr>
         <td>Excentricidade (e):</td>
-        <td>Tudo Puta</td>
+        <td><?php echo $sat->getExcentricity() ?></td>
       </tr>
       <tr>
         <td>Semi-Eixo Menor(b):</td>
-        <td>Tudo Puta</td>
+        <td><?php echo $sat->getSemiMinor() ?></td>
       </tr>
       <tr>
         <td>Azimute (az):</td>
-        <td>Tudo Puta</td>
+        <td><?php echo $sat->getAzimute() ?></td>
       </tr>
       <tr>
         <td>Elevação:</td>
-        <td>Tudo Puta</td>
+        <td><?php echo $sat->getElevation() ?></td>
       </tr>
     </table>
   </div>
