@@ -15,7 +15,7 @@
 <div class="main">
   <table class="tableLista">
     <tr id= tituloLista>
-      <td>Lista de Categorias:</td>
+      <td>Lista de Satelites:</td>
     </tr>
     <?php
 		$aux = new Satellite();
