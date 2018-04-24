@@ -13,9 +13,10 @@
 	<body>
 		
 		<div class="top">
-
-			<img class="logo" src="img/logo.png">
-			<div class="login">
+			<center>
+				<img class="logo" src="img/logo.png">
+			</center>
+				<div class="login">
 						<h2 class="cover_text"> Bem Vindo </h2>
 						<?php
 		require("database/classes.php");

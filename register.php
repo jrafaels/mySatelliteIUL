@@ -37,8 +37,9 @@
 		?>
 		
 		<div class="top">
-
-			<img class="logo1" src="img/logo.png">
+			<center>
+				<img class="logo1" src="img/logo.png">
+			</center>
 			<div class="register">
 						<h2 class="cover_text"> Bem Vindo </h2>
 						<form role="form" method="post" action="">
@@ -61,6 +62,6 @@
 					
 					<!--<script>window.location = './main.php'</script>-->
 		</div>
-		<?php  include "rodape.html"   ?>
+		<?php  include "rodape.php"   ?>
 	</body>
 </html>
