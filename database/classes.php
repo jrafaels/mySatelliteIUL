@@ -234,7 +234,7 @@
 			}
 			$options='';
 			for($i=1; $i<=sizeof($items); $i++){
-				$options.=$items[$i][1].'    '.$items[$i][0].'<br>';
+				$options.="<tr><td id=\"".$items[$i][1]."\">".$items[$i][0].'</td></tr><br>';
 			}
 			return $options;
 		} 
@@ -252,14 +252,16 @@
 			@$dom->loadHTML($cl);
 			$table = $dom->getElementById("categoriestab");
 			$rows = $table->getElementsByTagName('tr');
-			for($i=0; $i<$rows->length; $i++){
+			for($i=0; $i<$rows->length-1; $i++){
+				if($i>0){
 				$cols = $rows->item($i)->getElementsByTagName('td');
 				$items[$i] = $cols->item(0)->textContent;
+				}
 			}	
 			$options='';
 			while(list($k,$v)=each($items))
 			{
-				$options.=$k.'    '.$v.'<br>';
+				$options.='<tr><td>'.$v.'</td></tr><br>';
 			}	
 			return $options;     
 		}

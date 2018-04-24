@@ -17,13 +17,13 @@
 	//$aux->get_info(43199);
 	
 	
-	$list = $aux->get_catList();
+	/*$list = $aux->get_catList();
 	
 	echo $list;
-	/*
+	*/
 	$list = $aux->get_satList(3);
 	echo $list;
-	
+	/*
 	$list = $aux->get_info(39574);
 	foreach($list as $a)
 		echo $a."<br>";*/
