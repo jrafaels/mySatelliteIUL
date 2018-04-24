@@ -32,5 +32,12 @@
     </tr>
   </table>
 </div>
+<script>
+var satPage = function(td) {
+    //I want the ID of this td that I've captured by "this"
+    var tdId = td.id; //<--- This doesn't works
+    location.href="perfil_satelite.php?satId="+tdId;
+}
+</script>
 </body>
 </html>

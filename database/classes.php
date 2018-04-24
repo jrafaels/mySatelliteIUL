@@ -255,14 +255,18 @@
 			for($i=0; $i<$rows->length-1; $i++){
 				if($i>0){
 				$cols = $rows->item($i)->getElementsByTagName('td');
-				$items[$i] = $cols->item(0)->textContent;
+				$items[$i][0] = $cols->item(0)->textContent;
+				$items[$i][1] = $cols->item(1)->textContent;
 				}
 			}	
 			$options='';
-			while(list($k,$v)=each($items))
+			/*while(list($k,$v)=each($items))
 			{
 				$options.='<tr><td>'.$v.'</td></tr><br>';
-			}	
+			}	*/
+			for($i=1; $i<=sizeof($items); $i++){
+				$options.="<tr><td id=\"".$items[$i][1]."\" onclick=\"satPage(this)\">".$items[$i][0].'</td></tr><br>';
+			}
 			return $options;     
 		}
 				
