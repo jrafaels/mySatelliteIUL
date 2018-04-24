@@ -421,7 +421,7 @@
 		*/
 		public static function getRedCallout($title, $msg){
 			echo "<div class=\"alert alert-danger\">
-                <h4>". $title ."</h4>
+                <h4><strong>". $title ."</strong></h4>
 
                 <p>". $msg ."</p>
               </div>";

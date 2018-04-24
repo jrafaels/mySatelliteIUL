@@ -13,9 +13,10 @@
 	<body>
 		
 		<div class="top">
-
-			<img class="logo" src="img/logo.png">
-			<div class="login">
+			<center>
+				<img class="logo" src="img/logo.png">
+			</center>
+				<div class="login">
 						<h2 class="cover_text"> Bem Vindo </h2>
 						<?php
 		require("database/classes.php");
@@ -46,8 +47,9 @@
 						      	<label for="pwd">Password:</label>
 						      	<input name="mypassword" type="password" class="form-control" id="pwd" placeholder="Introduzir password">
 						    </div>
-						    <button type="submit" name="enviar" class="btn btn-default">Enter</button>
-						    
+						   <button type="submit" name="enviar" class="btn btn-default">Enter</button>
+						   <button type="button" onclick="location.href='register.php';" class="btn btn-default"> Registar</button> 
+   							
 						</form>
 						</div>
 					

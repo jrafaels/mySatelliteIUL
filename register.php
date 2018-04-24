@@ -22,23 +22,25 @@
 			$username = htmlentities(addslashes($_POST['myusername']));
 			$email = htmlentities(addslashes($_POST['myemail']));
 			$password = htmlentities(addslashes($_POST['mypassword']));	
-		
-			$user->login($username,$password);
 			
+			if(!empty($username) && !empty($email) && !empty($password)){
+				$user->newUser($username, $email, $password);
+			}else{
+				alerts::getRedCallout("Erro ao Registar", "Todos os campos têm de estar preenchidos.");
+			}
+		
 		}catch(Exception $e){
 			echo "Erro no login " . $e->GetMessage();	
-			echo '<div class="alert alert-danger">
-					  	<strong>Alert!</strong> Username and/or Password are not correct!
-					  	<button type="button" class="close" onclick="location.href=\'index.php\'">&times;</button>
-					</div>';
+			alerts::getRedCallout("Erro ao Registar", "Algo de errado não está certo.");
 		}
 	}
 	
 		?>
 		
 		<div class="top">
-
-			<img class="logo1" src="img/logo.png">
+			<center>
+				<img class="logo1" src="img/logo.png">
+			</center>
 			<div class="register">
 						<h2 class="cover_text"> Bem Vindo </h2>
 						<form role="form" method="post" action="">
@@ -61,6 +63,6 @@
 					
 					<!--<script>window.location = './main.php'</script>-->
 		</div>
-		<?php  include "rodape.html"   ?>
+		<?php  include "rodape.php"   ?>
 	</body>
 </html>
