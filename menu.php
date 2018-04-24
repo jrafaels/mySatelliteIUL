@@ -11,7 +11,7 @@
       </div>
       <a href="#">O meu Perfil</a>
       <a href="#">Contactos</a>
-      <a href="#">Logout</a>
+      <a href="logout.php">Logout</a>
      
      
     </div>

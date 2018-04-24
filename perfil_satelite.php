@@ -15,8 +15,8 @@
   <div class="info">
     <?php	
 	$sat = new Satellite();
-	
-	$sat->find_info(43226);
+	$satId = $_GET['satId'];
+	$sat->find_info($satId);
 	?>
     <table class="table1">
       <tr>
