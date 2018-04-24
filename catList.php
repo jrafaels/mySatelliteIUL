@@ -13,7 +13,7 @@
 	include('menu.php');
 ?>
 <div class="main">
-  <table class="tableLista">
+  <table id="tabela" class="tableLista">
     <tr id= tituloLista>
       <td>Lista de Categorias:</td>
     </tr>
@@ -31,5 +31,12 @@
     </tr>
   </table>
 </div>
+<script>
+var satPage = function(td) {
+    //I want the ID of this td that I've captured by "this"
+    var tdId = td.id; //<--- This doesn't works
+    location.href="listaSatelites.php?catId="+tdId;
+}
+</script>
 </body>
 </html>
