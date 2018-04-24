@@ -234,7 +234,7 @@
 			}
 			$options='';
 			for($i=1; $i<=sizeof($items); $i++){
-				$options.="<tr><td id=\"".$items[$i][1]."\">".$items[$i][0].'</td></tr><br>';
+				$options.="<tr><td id=\"".$items[$i][1]."\" onclick=\"satPage(this)\">".$items[$i][0].'</td></tr><br>';
 			}
 			return $options;
 		} 

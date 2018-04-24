@@ -19,7 +19,8 @@
     </tr>
     <?php
 		$aux = new Satellite();
-		$list = $aux->get_satList(20);
+		$catId = $_GET['catId'];
+		$list = $aux->get_satList($catId);
 	
 		echo $list;
 	?>
