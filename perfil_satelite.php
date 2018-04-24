@@ -2,6 +2,7 @@
 
 <html>
 <head>
+  <title> mySatellite-IUL | Perfil Satélite</title>
 <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
 <meta charset="utf-8">
 </head>
@@ -84,11 +85,13 @@
       </tr>
     </table>
   </div>
-    <div class="image">
-      <img src="img/satelite2.jpg"/>
-    </div>
-    <div class="rota">
-      <img src="img/satelite2.jpg">
+    <div class="media">
+      <div class="image">
+        <img src="img/satelite2.jpg"/>
+      </div>
+      <div class="rota">
+        <img src="img/satelite2.jpg">
+      </div>
     </div>
 </div>
 
