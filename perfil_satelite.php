@@ -148,7 +148,11 @@
 
 	?>
       </div>
-    </div>
+  </div>
+
+  <div class="button">
+    <button type="button" onclick="alert('Satélite adicionado aos favoritos')"> Adicionar aos Favoritos</button>
+  </div>
 </div>
 
 </body>
