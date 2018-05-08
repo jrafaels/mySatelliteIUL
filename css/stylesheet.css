@@ -48,7 +48,7 @@ html, body{
 
 }
 .menu a, .dropdown-btn {
- padding: 6px 8px 6px 16px;
+  padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 20px;
   color:#5b859a;
@@ -666,6 +666,31 @@ table tr:nth-child(odd) {
 		max-height:100%;
 		grid-row: 2/3;
 	}
+
+	.button{
+      display: inline-block;
+      padding: 15px 25px;
+      font-size: 24px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      color: #fff;
+      background-color: #87B4F8;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 3px #999;
+    }
+
+    .button:hover {
+      background-color: #626fba
+    }
+
+    .button:active {
+      background-color: #626fba;
+      box-shadow: 0 3px #666;
+      transform: translateY(4px);
+    }
 
 	th, td {
 		width: auto;
