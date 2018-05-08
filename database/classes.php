@@ -144,6 +144,42 @@
 
 			return $user;
 		}
+		
+		public function addSatFav($user_id, $sat_id){
+			$sql = "INSERT INTO user_sat (user_id, sat_id) VALUES (:user_id, :sat_id)";
+		
+			//Hash Password
+			//$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+		
+			//Devolve PDO Statement	
+			$resultado = $this->connection->prepare($sql);
+		
+			$resultado->execute(array(":user_id"=>$user_id, ":sat_id"=>$sat_id));
+		
+			$resultado->closeCursor();
+			
+			echo "Novo satélite favorito adicionado com sucesso.";
+		}
+		
+		public function remSatFav($user_id, $sat_id){
+			$sql = "DELETE FROM user_sat WHERE user_id=:user_id AND sat_id=:sat_id";
+		
+			//Hash Password
+			//$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+		
+			//Devolve PDO Statement	
+			$resultado = $this->connection->prepare($sql);
+			
+			$resultado->bindValue(":user_id", $user_id);
+			$resultado->bindValue(":sat_id", $sat_id);
+
+		
+			$resultado->execute(array(":user_id"=>$user_id, ":sat_id"=>$sat_id));
+		
+			$resultado->closeCursor();
+			
+			echo "satélite favorito removido com sucesso.";
+		}
 	
 		/**
 		* Login

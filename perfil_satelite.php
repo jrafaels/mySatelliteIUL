@@ -149,9 +149,28 @@
 	?>
       </div>
   </div>
+	<?php
+		if(isset($_POST["satId"])){
+			alert("Hello World");
 
+function alert($msg) {
+    echo "<script type='text/javascript'>alert('$msg');</script>";
+}
+		try{
+					
+			$user->addSatFav($_SESSION['username'], $satId);
+			
+		}catch(Exception $e){
+			echo "Erro nos satélites favoritos " . $e->GetMessage();	
+			alerts::getRedCallout("Erro ao adicionar", "Erro desconhecido.");
+		}
+	}
+	
+		?>
   <div class="button">
-    <button type="button" onclick="alert('Satélite adicionado aos favoritos')"> Adicionar aos Favoritos</button>
+    <form action="">
+    <button type="submit" name="satId" > Adicionar aos Favoritos</button>
+    </form>
   </div>
 </div>
 
