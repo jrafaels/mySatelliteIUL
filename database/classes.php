@@ -411,6 +411,22 @@
 	public function getAltitude(){
 			
 	}
+	
+	function get_tle($x)
+    {
+        //global $flag;
+        //if($flag == 's'){
+            $url = 'http://www.n2yo.com/satellite/?s='.$x;
+            $content = file_get_contents($url);
+            $first = explode( "<pre>" , $content );
+            $second = explode( "</pre>" , $first[1]);
+            $third = explode("\n" , $second[0]);
+            return $third[1]."<br>".$third[2];
+        //}
+        //else {
+        //    return 'Sem Informação Disponível';
+        //}
+    }
 }
 	
 	class Alerts{

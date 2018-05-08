@@ -13,7 +13,7 @@
 	include('menu.php');
 ?>
 <div class="main">
-  <table id="tabela" class="tableLista">
+  <table align="left" id="tabela">
     <tr id= tituloLista>
       <td>Lista de Categorias:</td>
     </tr>

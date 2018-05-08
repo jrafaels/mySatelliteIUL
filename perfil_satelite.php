@@ -67,7 +67,7 @@
         <!-- TLE -->
         <tr>
           <td><b>TLE</b></td>
-          <td>RAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</td>
+          <td><?php echo $sat->get_tle($satId) ?></td>
         </tr>
       </table>
     </div>
@@ -128,11 +128,11 @@
         </tr>
         <tr>
           <td>  Latitude:</td>
-          <td>RAFA PREENCHE</td>
+          <td>38.71667</td>
         </tr>
         <tr>
           <td>  Longitude:</td>
-          <td>RAFA PREENCHE</td>
+          <td>-9.13333</td>
         </tr>
       </table>
     </div>
