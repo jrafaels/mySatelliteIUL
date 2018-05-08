@@ -12,7 +12,7 @@
 	include('cabecalho.php');
 	include('menu.php');
 ?>
-<div class="main">
+<div class="mainLista">
   <table id="tabela" class="tableLista">
     <tr id= tituloLista>
       <td>Lista de Categorias:</td>
