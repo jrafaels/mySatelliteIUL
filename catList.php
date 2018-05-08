@@ -12,8 +12,13 @@
 	include('cabecalho.php');
 	include('menu.php');
 ?>
+<<<<<<< HEAD
 <div class="mainLista">
   <table id="tabela" class="tableLista">
+=======
+<div class="main">
+  <table align="left" id="tabela">
+>>>>>>> 3d953477b3d8122ed64ab7c2040fd934b40575ce
     <tr id= tituloLista>
       <td>Lista de Categorias:</td>
     </tr>

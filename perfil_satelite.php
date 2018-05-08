@@ -67,7 +67,7 @@
         <!-- TLE -->
         <tr>
           <td><b>TLE</b></td>
-          <td>RAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</td>
+          <td><?php echo $sat->get_tle($satId) ?></td>
         </tr>
       </table>
     </div>
@@ -128,11 +128,11 @@
         </tr>
         <tr>
           <td>  Latitude:</td>
-          <td>RAFA PREENCHE</td>
+          <td>38.71667</td>
         </tr>
         <tr>
           <td>  Longitude:</td>
-          <td>RAFA PREENCHE</td>
+          <td>-9.13333</td>
         </tr>
       </table>
     </div>
@@ -148,7 +148,30 @@
 
 	?>
       </div>
-    </div>
+  </div>
+	<?php
+		if(isset($_POST["satId"])){
+			alert("Hello World");
+
+function alert($msg) {
+    echo "<script type='text/javascript'>alert('$msg');</script>";
+}
+		try{
+					
+			$user->addSatFav($_SESSION['username'], $satId);
+			
+		}catch(Exception $e){
+			echo "Erro nos satélites favoritos " . $e->GetMessage();	
+			alerts::getRedCallout("Erro ao adicionar", "Erro desconhecido.");
+		}
+	}
+	
+		?>
+  <div class="button">
+    <form action="">
+    <button type="submit" name="satId" > Adicionar aos Favoritos</button>
+    </form>
+  </div>
 </div>
 
 </body>

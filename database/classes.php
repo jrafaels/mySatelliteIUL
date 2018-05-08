@@ -144,6 +144,42 @@
 
 			return $user;
 		}
+		
+		public function addSatFav($user_id, $sat_id){
+			$sql = "INSERT INTO user_sat (user_id, sat_id) VALUES (:user_id, :sat_id)";
+		
+			//Hash Password
+			//$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+		
+			//Devolve PDO Statement	
+			$resultado = $this->connection->prepare($sql);
+		
+			$resultado->execute(array(":user_id"=>$user_id, ":sat_id"=>$sat_id));
+		
+			$resultado->closeCursor();
+			
+			echo "Novo satélite favorito adicionado com sucesso.";
+		}
+		
+		public function remSatFav($user_id, $sat_id){
+			$sql = "DELETE FROM user_sat WHERE user_id=:user_id AND sat_id=:sat_id";
+		
+			//Hash Password
+			//$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+		
+			//Devolve PDO Statement	
+			$resultado = $this->connection->prepare($sql);
+			
+			$resultado->bindValue(":user_id", $user_id);
+			$resultado->bindValue(":sat_id", $sat_id);
+
+		
+			$resultado->execute(array(":user_id"=>$user_id, ":sat_id"=>$sat_id));
+		
+			$resultado->closeCursor();
+			
+			echo "satélite favorito removido com sucesso.";
+		}
 	
 		/**
 		* Login
@@ -411,6 +447,22 @@
 	public function getAltitude(){
 			
 	}
+	
+	function get_tle($x)
+    {
+        //global $flag;
+        //if($flag == 's'){
+            $url = 'http://www.n2yo.com/satellite/?s='.$x;
+            $content = file_get_contents($url);
+            $first = explode( "<pre>" , $content );
+            $second = explode( "</pre>" , $first[1]);
+            $third = explode("\n" , $second[0]);
+            return $third[1]."<br>".$third[2];
+        //}
+        //else {
+        //    return 'Sem Informação Disponível';
+        //}
+    }
 }
 	
 	class Alerts{
