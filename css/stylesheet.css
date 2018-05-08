@@ -703,6 +703,7 @@ table tr:nth-child(odd) {
 
     #tituloLista{
     	color: red;
+    	font-size: 20px;
     }
 
 
