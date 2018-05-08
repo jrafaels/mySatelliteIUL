@@ -16,7 +16,14 @@
   <div class="info">
     <?php	
 	$sat = new Satellite();
-	$satId = $_GET['satId'];
+	$user = new User();
+	$satAdd="";
+	if(isset($_GET['satId'])){
+		$satId = $_GET['satId'];
+	}else{
+		$satId = $_GET['addSat'];
+		$satAdd = $satId;	
+	}
 	$sat->find_info($satId);
 	?>
     <table class="table1">
@@ -150,15 +157,10 @@
       </div>
   </div>
 	<?php
-		if(isset($_POST["satId"])){
-			alert("Hello World");
-
-function alert($msg) {
-    echo "<script type='text/javascript'>alert('$msg');</script>";
-}
+		if(!empty($satAdd)){
 		try{
 					
-			$user->addSatFav($_SESSION['username'], $satId);
+			$user->addSatFav($_SESSION['username'], $satAdd);
 			
 		}catch(Exception $e){
 			echo "Erro nos satélites favoritos " . $e->GetMessage();	
@@ -168,8 +170,8 @@ function alert($msg) {
 	
 		?>
   <div class="button">
-    <form action="">
-    <button type="submit" name="satId" > Adicionar aos Favoritos</button>
+  <form action="?satId=<?php echo $satId ?>">
+    <button type="submit" value="<?php echo $satId ?>" name="addSat" > Adicionar aos Favoritos</button>
     </form>
   </div>
 </div>
