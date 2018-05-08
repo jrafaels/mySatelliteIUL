@@ -24,7 +24,12 @@
 	
 		echo $list;
 	?>
-    
+    <tr>
+      <td>OI</td>
+    </tr>
+    <tr>
+      <td>OI outra vez</td>
+    </tr>
   </table>
 </div>
 <script>
