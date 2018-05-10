@@ -145,12 +145,11 @@
 			return $user;
 		}
 		
-		public function addSatFav($user_id, $sat_id){
+		public function addSatFav($username, $sat_id){
 			$sql = "INSERT INTO user_sat (user_id, sat_id) VALUES (:user_id, :sat_id)";
 		
-			//Hash Password
-			//$hashed_password = password_hash($password, PASSWORD_DEFAULT);
-		
+			$user_id = $this->getId($username);
+			
 			//Devolve PDO Statement	
 			$resultado = $this->connection->prepare($sql);
 		
@@ -158,7 +157,7 @@
 		
 			$resultado->closeCursor();
 			
-			echo "Novo satélite favorito adicionado com sucesso.";
+			alerts::getGreenCallout("Satélite adiciona com sucesso!", "Parabéns!!! Agora você é satelitônico!");
 		}
 		
 		public function remSatFav($user_id, $sat_id){
@@ -178,7 +177,7 @@
 		
 			$resultado->closeCursor();
 			
-			echo "satélite favorito removido com sucesso.";
+			echo "Satélite favorito removido com sucesso.";
 		}
 	
 		/**

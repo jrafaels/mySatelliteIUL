@@ -12,8 +12,8 @@
 	include('cabecalho.php');
 	include('menu.php');
 ?>
-<div class="main">
-  <table align="left" id="tabela">
+<div class="mainLista">
+  <table id="tabela" class="tableLista">
     <tr id= tituloLista>
       <td>Lista de Categorias:</td>
     </tr>
@@ -23,12 +23,7 @@
 	
 		echo $list;
 	?>
-    <tr>
-      <td>OI</td>
-    </tr>
-    <tr>
-      <td>OI outra vez</td>
-    </tr>
+  
   </table>
 </div>
 <script>
