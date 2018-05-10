@@ -12,7 +12,7 @@
 	include('cabecalho.php');
 	include('menu.php');
 ?>
-<div class="main">
+<div class="profile_main">
   <div class="profile_info">
   <?php	
 	$aux = new User();
@@ -36,9 +36,27 @@
       </tr>
     </table>
   </div>
-    <div class="profile_pic">
-      <img src="img/jorginho.jpg"/>
-    </div>
+
+  <div class="profile_pic">
+    <img src="img/jorginho.jpg"/>
+  </div>
+
+  <div class="favoritos">
+    <table class="favoritos_table">
+      <tr>
+        <td>Nome do satélite 1</td>
+        <td><button>Remover dos Favoritos</button></td>
+      </tr>
+      <tr>
+        <td>Nome do satélite 2</td>
+        <td><button>Remover dos Favoritos</button></td>
+      </tr>
+      <tr>
+        <td>Nome do satélite 3</td>
+        <td><button>Remover dos Favoritos</button></td>
+      </tr>
+    </table> 
+  </div>
 </div>
 
 </body>
