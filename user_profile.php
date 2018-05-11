@@ -42,6 +42,7 @@
   </div>
 
   <div class="favoritos">
+  
     <table class="favoritos_table">
     <?php
 		$list = $aux->getSatFav($_SESSION['username']);
@@ -51,7 +52,7 @@
 			$sat->find_info($sat_id['sat_id']);
 			echo "<tr>
         <td>". $sat->getName() ."</td>
-        <td><button>Remover dos Favoritos</button></td>
+        <td><button onclick=\"window.location.href='perfil_satelite.php?satId=". $sat->getNorad() ."'\">Ver satélite</button></td>
       </tr>";	
 		}
 	?>
