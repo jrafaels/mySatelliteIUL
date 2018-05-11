@@ -7,5 +7,6 @@
 	require("database/classes.php");
 ?>
  <div class="cabecalho">
-      <a href=""><img id="user" src="img/man.png"></a>
+      <a href="user_profile.php"><img id="user" src="img/man.png"></a>
      </div>
+
