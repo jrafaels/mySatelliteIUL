@@ -21,7 +21,7 @@
 	
 	echo $list;
 	*/
-	$list = $aux->get_satList(3);
+	$list = $aux->find_info(43186);
 	echo $list;
 	/*
 	$list = $aux->get_info(39574);

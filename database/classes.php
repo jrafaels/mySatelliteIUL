@@ -157,7 +157,7 @@
 		
 			$resultado->closeCursor();
 			
-			alerts::getGreenCallout("Satélite adiciona com sucesso!", "Parabéns!!! Agora você é satelitônico!");
+			//alerts::getGreenCallout("Satélite adiciona com sucesso!", "Parabéns!!! Agora você é satelitônico!");
 		}
 		
 		public function remSatFav($username, $sat_id){
@@ -407,6 +407,14 @@
                 $this->items[$i] = 'Sem Informação Disponível';
             }
         }
+		
+		//Tabela com infos
+		$url = 'https://www.n2yo.com/widgets/widget-tracker.php?s='.$x.'&size=small&all=1&me=10&map=2';
+        $content = file_get_contents($url);
+		$first_step = explode( 'START' , $content);
+        //$second_step = explode('Track ' , $first_step[0]);
+        //$third_step = explode('now' , $second_step[1]);
+		//$this->items[0] = $third_step[0];
 	}
 
 	public function getName(){

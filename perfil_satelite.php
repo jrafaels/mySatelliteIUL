@@ -111,25 +111,47 @@
         </tr>
       </table>
     </div>
+    <?php
+		if(!empty($satAdd)){
+		try{
+					
+			$user->addSatFav($_SESSION['username'], $satAdd);
+			//$msg = "Tem um novo satélite favorito!! É o ". $sat->getName() ."! \n Parabéns!!";
+			//$user->sendEmail($_SESSION['username'], "Novo Satélite Favorito", $msg);
+			
+		}catch(Exception $e){
+			echo "Erro nos satélites favoritos " . $e->GetMessage();	
+			//alerts::getRedCallout("Erro ao adicionar", "Erro desconhecido.");
+		}
+		}
+		if(!empty($satRem)){
+		try{
+					
+			$user->remSatFav($_SESSION['username'], $satRem);
+			//$msg = "Removeu um satélite favorito!! O satélite ". $sat->getName() ." já não é mais seu amigo \n :( :( :(";
+			//$user->sendEmail($_SESSION['username'], "Perdeu um satélite amigo", $msg);
+			
+		}catch(Exception $e){
+			echo "Erro nos satélites favoritos " . $e->GetMessage();	
+			//alerts::getRedCallout("Erro ao remover", "Erro desconhecido.");
+		}
+	}
+	
+		?>
     <div class="coordenadas">
       <table class=tableCoordenadas>
-        <!-- TLE -->
-        <tr>
-          <td>Coordenadas do Satélite</td>
+        <!--<tr>
+          <td>Próxima passagem:</td>
           <td></td>
         </tr>
         <tr>
-          <td> Latitude:</td>
-          <td>RAFA PREENCHE</td>
+          <td> Tempo restante:</td>
+          <td>NADAAAA</td>
         </tr>
         <tr>
           <td> Longitude:</td>
           <td>RAFA PREENCHE</td>
-        </tr>
-        <tr>
-          <td> Altitude:</td>
-          <td>RAFA PREENCHE</td>
-        </tr>
+        </tr>-->
         <tr>
           <td>Coordenadas do ISCTE</td>
           <td></td>
@@ -141,6 +163,20 @@
         <tr>
           <td> Longitude:</td>
           <td>-9.13333</td>
+        </tr>
+        <tr>
+          <td>
+          <form action="">
+      <?php 
+  if($user->haveThisSatFav($_SESSION['username'], $satId)){
+	echo "<button type=\"submit\" value=\"". $satId ."\" name=\"remSat\"> Remover dos Favoritos</button>";  
+  }else{
+	  echo "<button type=\"submit\" value=\"". $satId ."\" name=\"addSat\"> Adicionar aos Favoritos</button>";  
+  }
+  ?>
+    </form>
+    </td>
+    <td></td>
         </tr>
       </table>
     </div>
@@ -154,43 +190,9 @@
 	?>
     </div>
   </div>
-  <?php
-		if(!empty($satAdd)){
-		try{
-					
-			$user->addSatFav($_SESSION['username'], $satAdd);
-			//$msg = "Tem um novo satélite favorito!! É o ". $sat->getName() ."! \n Parabéns!!";
-			//$user->sendEmail($_SESSION['username'], "Novo Satélite Favorito", $msg);
-			
-		}catch(Exception $e){
-			echo "Erro nos satélites favoritos " . $e->GetMessage();	
-			alerts::getRedCallout("Erro ao adicionar", "Erro desconhecido.");
-		}
-		}
-		if(!empty($satRem)){
-		try{
-					
-			$user->remSatFav($_SESSION['username'], $satRem);
-			//$msg = "Removeu um satélite favorito!! O satélite ". $sat->getName() ." já não é mais seu amigo \n :( :( :(";
-			//$user->sendEmail($_SESSION['username'], "Perdeu um satélite amigo", $msg);
-			
-		}catch(Exception $e){
-			echo "Erro nos satélites favoritos " . $e->GetMessage();	
-			alerts::getRedCallout("Erro ao remover", "Erro desconhecido.");
-		}
-	}
-	
-		?>
+  
   <div class="button">
-    <form action="">
-      <?php 
-  if($user->haveThisSatFav($_SESSION['username'], $satId)){
-	echo "<button type=\"submit\" value=\"". $satId ."\" name=\"remSat\"> Remover dos Favoritos</button>";  
-  }else{
-	  echo "<button type=\"submit\" value=\"". $satId ."\" name=\"addSat\"> Adicionar aos Favoritos</button>";  
-  }
-  ?>
-    </form>
+    
   </div>
 </div>
 </body>
