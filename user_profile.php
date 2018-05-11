@@ -43,18 +43,18 @@
 
   <div class="favoritos">
     <table class="favoritos_table">
-      <tr>
-        <td>Nome do satélite 1</td>
+    <?php
+		$list = $aux->getSatFav($_SESSION['username']);
+		
+		foreach($list as $sat_id){
+			$sat = new Satellite();
+			$sat->find_info($sat_id['sat_id']);
+			echo "<tr>
+        <td>". $sat->getName() ."</td>
         <td><button>Remover dos Favoritos</button></td>
-      </tr>
-      <tr>
-        <td>Nome do satélite 2</td>
-        <td><button>Remover dos Favoritos</button></td>
-      </tr>
-      <tr>
-        <td>Nome do satélite 3</td>
-        <td><button>Remover dos Favoritos</button></td>
-      </tr>
+      </tr>";	
+		}
+	?>
     </table> 
   </div>
 </div>

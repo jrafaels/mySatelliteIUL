@@ -160,11 +160,10 @@
 			alerts::getGreenCallout("Satélite adiciona com sucesso!", "Parabéns!!! Agora você é satelitônico!");
 		}
 		
-		public function remSatFav($user_id, $sat_id){
+		public function remSatFav($username, $sat_id){
 			$sql = "DELETE FROM user_sat WHERE user_id=:user_id AND sat_id=:sat_id";
 		
-			//Hash Password
-			//$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+			$user_id = $this->getId($username);
 		
 			//Devolve PDO Statement	
 			$resultado = $this->connection->prepare($sql);
@@ -178,6 +177,46 @@
 			$resultado->closeCursor();
 			
 			echo "Satélite favorito removido com sucesso.";
+		}
+		
+		public function haveThisSatFav($username, $sat_id){
+			$sql = "SELECT * FROM user_sat WHERE user_id=:user_id AND sat_id=:sat_id";
+			
+			$user_id = $this->getId($username);
+			
+			$resultado = $this->connection->prepare($sql);
+		
+			$resultado->bindValue(":user_id", $user_id);
+			$resultado->bindValue(":sat_id", $sat_id);
+		
+			$resultado->execute(array(":user_id"=>$user_id, ":sat_id"=>$sat_id));
+			$alunos = $resultado->fetchAll(PDO::FETCH_ASSOC);
+		
+			$count = $resultado->rowCount();					
+			
+			$resultado->closeCursor();
+			
+			if($count==0)
+				return false;
+			else
+				return true;	
+		}
+		
+		public function getSatFav($username){
+			$sql = "SELECT sat_id FROM user_sat WHERE user_id=:user_id";
+			
+			$user_id = $this->getId($username);
+		
+			$resultado = $this->connection->prepare($sql);
+		
+			$resultado->bindValue(":user_id", $user_id);
+		
+			$resultado->execute(array(":user_id"=>$user_id));
+			$list = $resultado->fetchAll(PDO::FETCH_ASSOC);
+			
+			$resultado->closeCursor();
+
+			return $list;
 		}
 	
 		/**
