@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title> mySatellite-IUL | Perfil Satélite</title>
+<title>mySatellite-IUL | Perfil Satélite</title>
 <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
 <meta charset="utf-8">
 </head>
@@ -18,11 +18,15 @@
 	$sat = new Satellite();
 	$user = new User();
 	$satAdd="";
+	$satRem="";
 	if(isset($_GET['satId'])){
 		$satId = $_GET['satId'];
-	}else{
+	}else if(isset($_GET['addSat'])){
 		$satId = $_GET['addSat'];
 		$satAdd = $satId;	
+	}else{
+		$satId = $_GET['remSat'];
+		$satRem = $satId;	
 	}
 	$sat->find_info($satId);
 	?>
@@ -35,6 +39,7 @@
         <td>NORAD ID:</td>
         <td><?php echo $sat->getNorad() ?></td>
       </tr>
+      
         <td>Int'l Code:</td>
         <td><?php echo $sat->getCode() ?></td>
       </tr><tr>
@@ -68,7 +73,6 @@
     </table>
   </div>
   <div class="mainTLE">
-
     <div class="dataTLE">
       <table class=tableTLE1>
         <!-- TLE -->
@@ -78,7 +82,6 @@
         </tr>
       </table>
     </div>
-
     <div class="TLE">
       <table class=tableTLE2>
         <!-- TLE -->
@@ -106,57 +109,52 @@
           <td>Elevação:</td>
           <td><?php echo $sat->getElevation() ?></td>
         </tr>
-
       </table>
     </div>
-
     <div class="coordenadas">
       <table class=tableCoordenadas>
         <!-- TLE -->
         <tr>
           <td>Coordenadas do Satélite</td>
-          <td> </td>
+          <td></td>
         </tr>
         <tr>
-          <td>  Latitude:</td>
+          <td> Latitude:</td>
           <td>RAFA PREENCHE</td>
         </tr>
         <tr>
-          <td>  Longitude:</td>
+          <td> Longitude:</td>
           <td>RAFA PREENCHE</td>
         </tr>
         <tr>
-          <td>  Altitude:</td>
+          <td> Altitude:</td>
           <td>RAFA PREENCHE</td>
         </tr>
         <tr>
           <td>Coordenadas do ISCTE</td>
-          <td> </td>
+          <td></td>
         </tr>
         <tr>
-          <td>  Latitude:</td>
+          <td> Latitude:</td>
           <td>38.71667</td>
         </tr>
         <tr>
-          <td>  Longitude:</td>
+          <td> Longitude:</td>
           <td>-9.13333</td>
         </tr>
       </table>
     </div>
-
   </div>
-    <div class="media">
-      <div class="image">
-        <img src="img/satelite2.jpg"/>
-      </div>
-      <div class="rota">
-        <?php
+  <div class="media">
+    <div class="image"> <img src="img/satelite2.jpg"/> </div>
+    <div class="rota">
+      <?php
         echo '<iframe width="580" height="320" src="https://www.n2yo.com/leaflet.php?s='.$satId.'&amp;size=large&amp;all=1&amp;me=10" scrolling="no" style="border: none; overflow: hidden; display: block"></iframe>';
 
 	?>
-      </div>
+    </div>
   </div>
-	<?php
+  <?php
 		if(!empty($satAdd)){
 		try{
 					
@@ -166,15 +164,30 @@
 			echo "Erro nos satélites favoritos " . $e->GetMessage();	
 			alerts::getRedCallout("Erro ao adicionar", "Erro desconhecido.");
 		}
+		}
+		if(!empty($satRem)){
+		try{
+					
+			$user->remSatFav($_SESSION['username'], $satRem);
+			
+		}catch(Exception $e){
+			echo "Erro nos satélites favoritos " . $e->GetMessage();	
+			alerts::getRedCallout("Erro ao remover", "Erro desconhecido.");
+		}
 	}
 	
 		?>
   <div class="button">
-  <form action="?satId=<?php echo $satId ?>">
-    <button type="submit" value="<?php echo $satId ?>" name="addSat" > Adicionar aos Favoritos</button>
+    <form action="">
+      <?php 
+  if($user->haveThisSatFav($_SESSION['username'], $satId)){
+	echo "<button type=\"submit\" value=\"". $satId ."\" name=\"remSat\"> Remover dos Favoritos</button>";  
+  }else{
+	  echo "<button type=\"submit\" value=\"". $satId ."\" name=\"addSat\"> Adicionar aos Favoritos</button>";  
+  }
+  ?>
     </form>
   </div>
 </div>
-
 </body>
 </html>
