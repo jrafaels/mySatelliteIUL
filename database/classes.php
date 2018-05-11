@@ -218,6 +218,18 @@
 
 			return $list;
 		}
+		
+		public function sendEmail($username, $subject, $message){
+			$user = $this->getUser($username);
+			
+			$to = $user['email'];
+			$headers = 'From: geral@satellite-iul.pt' . "\r\n" .
+				'Reply-To: geral@satellite-iul.pt' . "\r\n" .
+				'X-Mailer: PHP/' . phpversion();
+
+			mail($to, $subject, $message, $headers);
+
+		}
 	
 		/**
 		* Login

@@ -159,6 +159,8 @@
 		try{
 					
 			$user->addSatFav($_SESSION['username'], $satAdd);
+			//$msg = "Tem um novo satélite favorito!! É o ". $sat->getName() ."! \n Parabéns!!";
+			//$user->sendEmail($_SESSION['username'], "Novo Satélite Favorito", $msg);
 			
 		}catch(Exception $e){
 			echo "Erro nos satélites favoritos " . $e->GetMessage();	
@@ -169,6 +171,8 @@
 		try{
 					
 			$user->remSatFav($_SESSION['username'], $satRem);
+			//$msg = "Removeu um satélite favorito!! O satélite ". $sat->getName() ." já não é mais seu amigo \n :( :( :(";
+			//$user->sendEmail($_SESSION['username'], "Perdeu um satélite amigo", $msg);
 			
 		}catch(Exception $e){
 			echo "Erro nos satélites favoritos " . $e->GetMessage();	
