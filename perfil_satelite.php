@@ -164,22 +164,22 @@
           <td> Longitude:</td>
           <td>-9.13333</td>
         </tr>
-        <tr>
-          <td>
-          <form action="">
-      <?php 
-  if($user->haveThisSatFav($_SESSION['username'], $satId)){
-	echo "<button type=\"submit\" value=\"". $satId ."\" name=\"remSat\"> Remover dos Favoritos</button>";  
-  }else{
-	  echo "<button type=\"submit\" value=\"". $satId ."\" name=\"addSat\"> Adicionar aos Favoritos</button>";  
-  }
-  ?>
-    </form>
-    </td>
-    <td></td>
-        </tr>
       </table>
+
+      <div class="button_div">
+        <form action="">
+        <?php 
+          if($user->haveThisSatFav($_SESSION['username'], $satId)){
+          echo "<button type=\"submit\" value=\"". $satId ."\" name=\"remSat\" class=\"button\"> Remover dos Favoritos</button>";  
+          }else{
+          echo "<button type=\"submit\" value=\"". $satId ."\" name=\"addSat\" classe class=\"button\"> Adicionar aos Favoritos</button>";  
+        }
+        ?>
+        </form>
+     </div>
+
     </div>
+      
   </div>
   <div class="media">
     <div class="image"> <img src="img/satelite2.jpg"/> </div>
@@ -187,10 +187,14 @@
       <?php
         echo '<iframe width="430" height="320" src="https://www.n2yo.com/leaflet.php?s='.$satId.'&amp;size=large&amp;all=1&amp;me=10" scrolling="no" style="border: none; overflow: hidden; display: block"></iframe>';
 
-	?>
+	    ?>
     </div>
   </div>
+<!--<<<<<<< HEAD
   
+=======
+
+>>>>>>> 1303966431aa1114370c1c3da5d45d156165f55d-->
 </div>
 </body>
 </html>
