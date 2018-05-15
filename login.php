@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="css/stylesheet.css" type="text/css">
+		<link rel="stylesheet" href="css/logincss.css" type="text/css">
 	</head>
 
 	<body>
@@ -46,10 +46,12 @@
 						    <div class="form-group">
 						      	<label for="pwd">Password:</label>
 						      	<input name="mypassword" type="password" class="form-control" id="pwd" placeholder="Introduzir password">
+
 						    </div>
+						   <div style="text-align: center; padding-bottom: 5px;">
 						   <button type="submit" name="enviar" class="btn btn-default">Enter</button>
 						   <button type="button" onclick="location.href='register.php';" class="btn btn-default"> Registar</button> 
-   							
+   							</div>
 						</form>
 						</div>
 					
