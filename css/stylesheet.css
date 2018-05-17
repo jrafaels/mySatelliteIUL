@@ -272,8 +272,8 @@ td {
     text-align: center;
     text-decoration: none;
     outline: none;
-    color: #fff;
-    background-color: #626fba;
+    color: #e3e3e3;
+    background-color:#5b859a;
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
@@ -286,13 +286,14 @@ td {
 }
 
 .button:hover {
-	background-color: #7688f2;
+	background-color: #e3e3e3;
 	padding-top: 10px;
+	color:#5b859a;
 }
 
 .button:active{
 	padding-top: 10px;
-	box-shadow: 0 5px #7688f2;
+	box-shadow: 0 5px #5b859a;
 	transform: translateY(4px);
 }
 
