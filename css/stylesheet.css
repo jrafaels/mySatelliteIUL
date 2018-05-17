@@ -251,7 +251,7 @@ td {
 
 
 .button{
-	display: inline-block;
+	/*display: inline-block;
 	padding: 15px 25px;
 	font-size: 18px;
 	cursor: pointer;
@@ -262,23 +262,37 @@ td {
 	background-color: #A9BCF5;
 	border: none;
 	border-radius: 5px;
-	box-shadow: 0 4px #999;
+	box-shadow: 0 4px #999;*/
 	grid-row:2/3;
-	width: 100%;
-	height: 15%;	
+
+	display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #626fba;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+	/*width: 100%;
+	height: 15%;*/	
 }
 
 .button_div{
 	padding-top: 10px;
 }
 
-.button_div:hover {
-	background-color: #626fba
+.button:hover {
+	background-color: #7688f2;
+	padding-top: 10px;
 }
 
-.button_div:active{
-	background-color: #626fba;
-	box-shadow: 0 3px #666;
+.button:active{
+	padding-top: 10px;
+	box-shadow: 0 5px #7688f2;
 	transform: translateY(4px);
 }
 
