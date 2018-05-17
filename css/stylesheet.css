@@ -114,7 +114,7 @@ td {
 .main{
 	width: 79%;
 	height: 92%;
-	padding-left: 23%;
+	padding-left: 21%;
 	padding-top: 5%;
 	display: grid;
 	grid-template-columns: 50% 50%;
@@ -125,6 +125,10 @@ td {
 .info{
 	color: #fff;
 	border-radius: 5px;
+	margin: 0;
+	padding: 5px;
+	height: 100%;
+	width: 100%;
 	grid-column: 1/2;
 	grid-row: 1/2:;
 }
@@ -132,6 +136,9 @@ td {
 .table1{
 	opacity: 0.7;
 	font-size: 14px;
+	margin: 0;
+	padding: 0;
+	height: 100%;
 	width: 100%;	
 }
 
@@ -142,7 +149,10 @@ td {
 	display: grid;
 	grid-template-columns: 50% 50%;
 	grid-template-rows: 15% 85%;
-	padding-top: 8%;
+	margin: 0;
+	padding: 5px;
+	height: 100%;
+	width: 100%;
 
 }
 
@@ -151,6 +161,7 @@ td {
 	font-size: 14px;
 	width: 100%;
 	height: 100%;
+	margin: 0;
 	grid-column: 1/3;
 	grid-row: 1/2;
 
@@ -168,6 +179,9 @@ td {
 	color: #fff;
 	border-radius: 5px;
 	padding-top: 5%;
+	margin: 0;
+	height: 100%;
+	width: 100%;
 	grid-column: 1/2;
 	grid-row: 2/3;
 }
@@ -182,6 +196,11 @@ td {
 .coordenadas{
 	color: #fff;
 	border-radius: 5px;
+	margin: 0;
+	padding-top: 1px;
+	padding-left: 5px;
+	height: 100%;
+	width: 98%;
 	grid-column: 2/3;
 	grid-row: 2/3;
 	grid-template-rows: 15% 85%;
@@ -212,15 +231,22 @@ td {
 }
 
 .image{
-	max-width:90%;
-	max-height:90%;
+	max-width:100%;
+	max-height:100%;
+	margin: 0;
+	padding: 5px;
+	height: 100%;
+	width: 100%;
 	grid-row: 1/2;
 }
 
 .rota{
-	width:5%;
+	margin: 0;
+	padding-left: 10%;
+	height: 100%;
+	width: 100%;
+	max-width: 100%;
 	grid-row: 2/3;
-	margin-bottom: 5%;
 }
 
 
@@ -240,6 +266,10 @@ td {
 	grid-row:2/3;
 	width: 100%;
 	height: 15%;	
+}
+
+.button_div{
+	padding-top: 10px;
 }
 
 .button_div:hover {
