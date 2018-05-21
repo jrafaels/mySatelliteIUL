@@ -38,7 +38,7 @@
   </div>
 
   <div class="profile_pic">
-    <img src="img/jorginho.jpg"/>
+    <img src="img/man.png"/>
   </div>
 
   <div class="favoritos">
