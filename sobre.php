@@ -7,9 +7,9 @@
 </head>
 <body>
 	<?php
-		include('cabecalho.php');
-		include('menu.php');
-	?>
+	
+  include('header.php');
+?>
 	<div id="wrapper">
 		Este trabalho surgiu no âmbito da unidade curricular de Sistemas de Comunicações Digitais por Satélite e tem como objetivo mostrar dados e órbitas de satélites num Video Wall.
 		Para o desenvolvimento deste sistema decidimos fazer um site utilizando, para isso, as linguagens: HTML, PHP, JavaScript e CSS. 

@@ -9,8 +9,8 @@
 
 <body>
 <?php
-	include('cabecalho.php');
-	include('menu.php');
+  
+  include('header.php');
 ?>
 <div class="profile_main">
   <div class="profile_info">

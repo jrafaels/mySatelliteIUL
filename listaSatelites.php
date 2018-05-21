@@ -9,8 +9,8 @@
 
 <body>
 <?php
-	include('cabecalho.php');
-	include('menu.php');
+  
+  include('header.php');
 ?>
 <div class="mainLista">
   <table class="tableLista">

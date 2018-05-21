@@ -1,0 +1,227 @@
+body{
+  font-family:"Arial", Serif;
+  margin: 0;
+}
+
+.navbar{
+  background-color: #222;
+  height:60px;
+  position: relative;
+}
+
+.navbar a{
+  float:left;
+  display:block;
+  color:#222;
+  text-align:center;
+  padding:14px 16px;
+  text-decoration:none;
+  font-size:17px;
+}
+
+.navbar #user {
+  float:right;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.navbar p {
+  font-size: 25px;
+  text-align: center;
+  font-family: "Pacifico";
+  color: white;
+  vertical-align: middle;
+
+}
+
+.navbar #logo {
+  width: 20%;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.navbar ul{
+  margin:5px 0 0 0;
+  list-style:none;
+}
+
+.navbar a:hover{
+  background-color:#ddd;
+  color:#000;
+}
+
+.navbar .notifications {
+  float: right;
+  width: 60px;
+  height: 60px;
+  margin-right: 3%;
+}
+
+.navbar .notifications .fas {
+  color: #cecece;
+  line-height: 60px;
+  font-size: 30px;
+}
+
+
+.navbar .notifications .num {
+  position: absolute;
+  margin-top: 5px;
+  top: 0;
+  right: 140px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: black;
+  color: white;
+  line-height: 25px;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.navbar .notifications:hover .num {
+  display: none;
+}
+
+.navbar .notifications ul {
+  position: absolute;
+  right: 5px;
+  top: 100%;
+  margin:0;
+  width: 20%;
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  padding: 20px;
+  box-sizing: border-box; 
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  display: none;
+}
+
+.navbar .notifications:hover ul {
+  display: block;
+}
+
+.navbar .notifications ul li {
+  list-style: none;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  padding: 8px 0;
+  display: flex;
+}
+
+.navbar .notifications ul li:last-child {
+   border-bottom: none;
+}
+
+.navbar .notifications ul li .icon {
+  height: 5%;
+  background: darkorange;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 24px;
+  margin-right: 15px;
+}
+
+.navbar .notifications ul li .icon .fas {
+  color: #fff;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.navbar .notifications ul li .text {
+  position: relative;
+  font-family: sans-serif;
+  top: 3px;
+  cursor: pointer;
+  color: darkgrey;
+}
+
+.side-nav{
+  height:100%;
+  width:0;
+  position:fixed;
+  z-index:1;
+  top:0;
+  left:0;
+  background-color:#222;
+  overflow-x:hidden;
+  padding-top:60px;
+  transition:0.5s;
+}
+
+.side-nav a{
+  padding:10px 10px 10px 30px;
+  text-decoration:none;
+  font-size:25px;
+  color:#5b859a;
+  display:block;
+  transition:0.3s;
+}
+
+.side-nav a:hover{
+
+  color:#fff;
+}
+
+.side-nav .btn-close{
+  position:absolute;
+  top:0;
+  right:5px;
+  font-size:36px;
+  margin-left:50px;
+}
+
+.side-nav .user-menu {
+  margin: -40px 0 20px 10px;
+}
+
+.side-nav .user-menu hr {
+  margin-top: 30px;
+  margin-right: 20px;
+  color: #f2f2f2;
+  width: 93%;
+}
+
+.side-nav .user-logo {
+  width: 25%;
+  display: inline-block;
+  vertical-align:middle;
+}
+
+
+.side-nav .user-name {
+  display: inline-block;
+  vertical-align:middle;
+  font-family: 'Cabin', sans-serif;
+  font-size: 25px;
+  color: white;
+  margin-left: 10px;
+
+}
+
+.side-nav .settings {
+  margin: auto;
+  width: 100%;
+  position: absolute;
+  left: 20%;
+  bottom: 10%;
+}
+
+.side-nav .img-settings {
+  width: 15%;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 110px;
+}
+
+#user{
+  width: 2.1%;
+  padding-top: 1%;
+  float:right;
+  padding-right: 4%;
+}

@@ -58,6 +58,7 @@
 						    </div>
 						    <div style="text-align: center; padding-bottom: 5px;">
 						    	<button type="submit" name="enviar" class="btn btn-default">Enter</button>
+						    	 <button type="button" onclick="location.href='login.php';" class="btn btn-default"> Voltar</button> 
 						    </div>
 						</form>
 						</div>
