@@ -158,6 +158,11 @@
 			$resultado->closeCursor();
 			
 			//alerts::getGreenCallout("Satélite adiciona com sucesso!", "Parabéns!!! Agora você é satelitônico!");
+			$sat = new Satellite();
+			$sat->find_info($sat_id);
+			$text = "O satélite ". $sat->getName() ." está quase a passar!!";
+			$msg = new Message();
+			$msg->newMsg($user_id, $sat_id, $text);
 		}
 		
 		public function remSatFav($username, $sat_id){
@@ -176,7 +181,9 @@
 		
 			$resultado->closeCursor();
 			
-			echo "Satélite favorito removido com sucesso.";
+			//echo "Satélite favorito removido com sucesso.";
+			$msg = new Message();
+			$msg->remMsg($user_id, $sat_id);
 		}
 		
 		public function haveThisSatFav($username, $sat_id){
@@ -416,6 +423,18 @@
         //$third_step = explode('now' , $second_step[1]);
 		//$this->items[0] = $third_step[0];
 	}
+	
+	public function getTimeToPass($x){
+        $url = 'https://in-the-sky.org/satpasses.php?gotosat='.$x;
+        $content = file_get_contents($url);
+		
+		//Nome do satélite
+		$first_step = explode( 'Satellite Name' , $content);
+        //$second_step = explode('Track ' , $first_step[0]);
+        //$third_step = explode('now' , $second_step[1]);
+		//$this->items[0] = $third_step[0];
+		echo $first_step[0];
+	}
 
 	public function getName(){
 		return $this->items[0];
@@ -543,6 +562,63 @@
 
                 <p>". $msg ."</p>
               </div>";
+		}
+	}
+	
+	class Message extends Connection{
+		
+		public function Message(){
+			parent::__construct();	
+		}
+		
+		/**
+		* Create new user
+		* @param
+		*/
+		public function newMsg($user_id, $sat_id, $msg){
+			
+			$sql = "INSERT INTO message (user_id, sat_id, text) VALUES (:user_id, :sat_id, :text)";
+				
+			//Devolve PDO Statement	
+			$resultado = $this->connection->prepare($sql);
+		
+			$resultado->execute(array(":user_id"=>$user_id, ":sat_id"=>$sat_id, ":text"=>$msg));
+		
+			$resultado->closeCursor();
+			
+			echo "Nova mensagem criada com sucesso";
+		}
+		
+		public function remMsg($user_id, $sat_id){
+			$sql = "DELETE FROM message WHERE user_id=:user_id AND sat_id=:sat_id";
+				
+			//Devolve PDO Statement	
+			$resultado = $this->connection->prepare($sql);
+			
+			$resultado->bindValue(":user_id", $user_id);
+			$resultado->bindValue(":sat_id", $sat_id);
+
+		
+			$resultado->execute(array(":user_id"=>$user_id, ":sat_id"=>$sat_id));
+		
+			$resultado->closeCursor();
+			
+			echo "Mensagem removida com sucesso.";
+		}
+		
+		public function getMsgs($user_id){
+			$sql = "SELECT * FROM message WHERE user_id=:user_id";
+		
+			$resultado = $this->connection->prepare($sql);
+		
+			$resultado->bindValue(":user_id", $user_id);
+		
+			$resultado->execute(array(":user_id"=>$user_id));
+			$msg = $resultado->fetchAll(PDO::FETCH_ASSOC);	
+			
+			$resultado->closeCursor();
+			
+			return $msg;
 		}
 	}
 	

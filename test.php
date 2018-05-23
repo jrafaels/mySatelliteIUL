@@ -21,7 +21,7 @@
 	
 	echo $list;
 	*/
-	$list = $aux->find_info(43186);
+	$list = $aux->getTimeToPass(40534);
 	echo $list;
 	/*
 	$list = $aux->get_info(39574);

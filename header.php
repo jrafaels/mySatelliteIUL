@@ -32,6 +32,21 @@
       <i class="fas fa-bell"></i>
       <span class="num">4</span>
       <ul>
+      <?php
+	  	$user = new User();
+	  	$user_id = $user->getId($_SESSION['username']);
+	  	$msg = new Message();
+		$list = $msg->getMsgs($user_id);
+		
+		foreach($list as $m){
+			if($m['available']==1){
+				echo "<li>
+      		    <span class=\"icon\"><i class=\"fas fa-exclamation-circle\"></i></span>
+        		<span class=\"text\">". $m['text'] ."</span>
+         		</li>";	
+			}
+		}
+	  ?>
         <li>
           <span class="icon"><i class="fas fa-exclamation-circle"></i></span>
           <span class="text">Uma notificação</span>
