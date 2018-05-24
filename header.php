@@ -71,6 +71,7 @@
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
     
     <a href="index.php">Início</a>
+    <a href="random_satelite.php">Modo Automático</a>
     <a href="sobre.php">Sobre</a>
     <a href="logout.php">Logout</a>
   </div>

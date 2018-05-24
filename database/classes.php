@@ -359,6 +359,7 @@
 			}	*/
 			for($i=1; $i<=sizeof($items); $i++){
 				$options.="<tr><td id=\"".$items[$i][1]."\" onclick=\"satPage(this)\">".$items[$i][0].'</td></tr><br>';
+				$this->newSat($items[$i][1], $items[$i][0]);
 			}
 			return $options;     
 		}
@@ -425,11 +426,11 @@
 	}
 	
 	public function getTimeToPass($x){
-        $url = 'https://in-the-sky.org/satpasses.php?gotosat='.$x;
+        $url = 'https://www.n2yo.com/leaflet.php?s='. $x .'&size=large&all=1&me=10';
         $content = file_get_contents($url);
 		
 		//Nome do satélite
-		$first_step = explode( 'Satellite Name' , $content);
+		$first_step = explode( 'GOES' , $content);
         //$second_step = explode('Track ' , $first_step[0]);
         //$third_step = explode('now' , $second_step[1]);
 		//$this->items[0] = $third_step[0];
@@ -540,6 +541,52 @@
         //    return 'Sem Informação Disponível';
         //}
     }
+	
+	public function haveThisSatellite($sat_id){
+			$sql = "SELECT sat_id FROM satellite WHERE sat_id=:sat_id";
+			$resultado = $this->connection->prepare($sql);
+		
+			$resultado->bindValue(":sat_id", $sat_id);
+		
+			$resultado->execute(array(":sat_id"=>$sat_id));
+			$alunos = $resultado->fetchAll(PDO::FETCH_ASSOC);
+		
+			$count = $resultado->rowCount();					
+			
+			$resultado->closeCursor();
+			
+			if($count==0)
+				return false;
+			else
+				return true;	
+		}
+	
+	public function newSat($sat_id, $name){
+		if(!$this->haveThisSatellite($sat_id)){
+			$sql = "INSERT INTO satellite (sat_id, name) VALUES (:sat_id, :name)";
+				
+			//Devolve PDO Statement	
+			$resultado = $this->connection->prepare($sql);
+		
+			$resultado->execute(array(":sat_id"=>$sat_id, ":name"=>$name));
+		
+			$resultado->closeCursor();
+		}
+	}
+	
+	public function randomSatellite(){
+		$sql = "SELECT sat_id FROM satellite";
+		
+		$resultado = $this->connection->prepare($sql);
+		
+		$resultado->execute(array());
+		$list = $resultado->fetchAll(PDO::FETCH_ASSOC);	
+			
+		$resultado->closeCursor();
+			
+		$satt = array_rand($list, 1);
+		return $satt[0];
+	}
 }
 	
 	class Alerts{
