@@ -185,7 +185,7 @@
     <div class="image"> <img src="img/satelite2.jpg"/> </div>
     <div class="rota">
       <?php
-        echo '<iframe width="533" height="320" src="https://www.n2yo.com/leaflet.php?s='.$satId.'&amp;size=large&amp;all=1&amp;me=10" scrolling="no" style="border: none; overflow: hidden; display: block"></iframe>';
+        echo '<iframe width="540" height="320" src="https://www.n2yo.com/leaflet.php?s='.$satId.'&amp;size=large&amp;all=1&amp;me=10" scrolling="no" style="border: none; overflow: hidden; display: block"></iframe>';
 
 	    ?>
     </div>
