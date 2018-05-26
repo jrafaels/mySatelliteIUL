@@ -72,6 +72,7 @@
     
     <a href="index.php">Início</a>
     <a href="random_satelite.php">Modo Automático</a>
+    <a href="">Satélites Contactáveis</a>
     <a href="sobre.php">Sobre</a>
     <a href="logout.php">Logout</a>
   </div>
