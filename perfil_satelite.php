@@ -184,6 +184,17 @@
         ?>
         </form>
      </div>
+       <div class="button_div">
+          <form action="">
+          <?php 
+            if($user->haveThisSatFav($_SESSION['username'], $satId)){
+            echo "<button type=\"submit\" value=\"". $satId ."\" name=\"remSat\" class=\"button\"> cenas1</button>";  
+            }else{
+            echo "<button type=\"submit\" value=\"". $satId ."\" name=\"addSat\" classe class=\"button\"> cenas2</button>";  
+          }
+          ?>
+          </form>
+     </div>
 
     </div>
       
