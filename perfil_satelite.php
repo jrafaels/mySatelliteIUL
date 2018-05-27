@@ -4,6 +4,7 @@
 <head>
 <title>mySatellite-IUL | Perfil Satélite</title>
 <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
+<!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">--> 
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <meta charset="utf-8">
 </head>
@@ -123,7 +124,7 @@
 			
 		}catch(Exception $e){
 			echo "Erro nos satélites favoritos " . $e->GetMessage();	
-			//alerts::getRedCallout("Erro ao adicionar", "Erro desconhecido.");
+			alerts::getRedCallout("Erro ao adicionar", "Erro desconhecido.");
 		}
 		}
 		if(!empty($satRem)){
@@ -135,7 +136,7 @@
 			
 		}catch(Exception $e){
 			echo "Erro nos satélites favoritos " . $e->GetMessage();	
-			//alerts::getRedCallout("Erro ao remover", "Erro desconhecido.");
+			alerts::getRedCallout("Erro ao remover", "Erro desconhecido.");
 		}
 	}
 	

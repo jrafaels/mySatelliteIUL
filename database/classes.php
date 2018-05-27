@@ -447,7 +447,7 @@
 					$i++;
 				}
 			}
-		}
+	}
 	
 
 	public function getName(){
