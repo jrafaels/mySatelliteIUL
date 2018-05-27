@@ -84,6 +84,14 @@ td {
 	background-color: lightgray;
 }
 
+th, td:hover {
+	background-color: #e3e3e3;
+	padding-top: 5px;
+	color:#5b859a;
+}
+
+
+
 .tableLista{
 	opacity: 0.7;
 	font-size: 14px;
