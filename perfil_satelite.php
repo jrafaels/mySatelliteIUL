@@ -4,6 +4,7 @@
 <head>
 <title>mySatellite-IUL | Perfil Satélite</title>
 <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <meta charset="utf-8">
 </head>
 
@@ -29,6 +30,7 @@
 		$satRem = $satId;	
 	}
 	$sat->find_info($satId);
+	$sat->get_satPosition($satId);
 	?>
     <table class="table1">
       <tr>
@@ -103,11 +105,11 @@
         </tr>
         <tr>
           <td>Azimute (az):</td>
-          <td><?php echo $sat->getAzimute() ?></td>
+          <td><?php echo $sat->getAzimute() ?>º</td>
         </tr>
         <tr>
           <td>Elevação:</td>
-          <td><?php echo $sat->getElevation() ?></td>
+          <td><?php echo $sat->getElevation() ?>º</td>
         </tr>
       </table>
     </div>
@@ -140,29 +142,33 @@
 		?>
     <div class="coordenadas">
       <table class=tableCoordenadas>
-        <!--<tr>
-          <td>Próxima passagem:</td>
+        <tr>
+          <td>Coordenadas do Satélite:</td>
           <td></td>
         </tr>
         <tr>
-          <td> Tempo restante:</td>
-          <td>NADAAAA</td>
+          <td> Latitude:</td>
+          <td><?php echo $sat->getLatitude() ?> ºN</td>
         </tr>
         <tr>
           <td> Longitude:</td>
-          <td>RAFA PREENCHE</td>
-        </tr>-->
+          <td><?php echo $sat->getLongitude() ?> ºE</td>
+        </tr>
+        <tr>
+          <td> Altitude:</td>
+          <td><?php echo $sat->getAltitude() ?> km</td>
+        </tr>
         <tr>
           <td>Coordenadas do ISCTE</td>
           <td></td>
         </tr>
         <tr>
           <td> Latitude:</td>
-          <td>38.71667</td>
+          <td><?php echo $sat->getISCTELat() ?> ºN</td>
         </tr>
         <tr>
           <td> Longitude:</td>
-          <td>-9.13333</td>
+          <td><?php echo $sat->getISCTELong() ?> ºE</td>
         </tr>
       </table>
 

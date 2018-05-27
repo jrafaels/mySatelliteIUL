@@ -4,6 +4,7 @@
 <head>
 <title>mySatellite-IUL</title>
 <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <meta charset="utf-8">
 </head>
 

@@ -277,6 +277,7 @@
 		private $items = array();
 		
 		private $earthRadius = 6378;
+		private $key = "W5JT3A-AEEYVQ-AZAHCH-3TIT";
 		
 		public function Satellite(){
 			parent::__construct();	
@@ -425,17 +426,29 @@
 		//$this->items[0] = $third_step[0];
 	}
 	
-	public function getTimeToPass($x){
-        $url = 'https://www.n2yo.com/leaflet.php?s='. $x .'&size=large&all=1&me=10';
-        $content = file_get_contents($url);
-		
-		//Nome do satélite
-		$first_step = explode( 'GOES' , $content);
-        //$second_step = explode('Track ' , $first_step[0]);
-        //$third_step = explode('now' , $second_step[1]);
-		//$this->items[0] = $third_step[0];
-		echo $first_step[0];
-	}
+	public function get_satPosition($norad){
+			$url = 'https://www.n2yo.com/rest/v1/satellite/positions/'.$norad.'/'.$this->getISCTELat().'/'.$this->getISCTELong().'/'.$this->getISCTEAlt().'/1/&apiKey=W5JT3A-AEEYVQ-AZAHCH-3TIT';
+			$json = file_get_contents($url);
+			$obj = json_decode($json);
+			$jsonIterator = new RecursiveIteratorIterator(
+    			new RecursiveArrayIterator(json_decode($json, TRUE)),
+    			RecursiveIteratorIterator::SELF_FIRST);
+
+			
+			$i=8;
+			foreach ($jsonIterator as $key => $val) {
+				if(is_array($val)) {
+					//echo "$key:\n";
+				} else {
+					//echo "$key => $val<br>";
+					if($i>10 && $i<16){
+						$this->items[$i]=$val;
+					}
+					$i++;
+				}
+			}
+		}
+	
 
 	public function getName(){
 		return $this->items[0];
@@ -503,27 +516,35 @@
 	}
 	
 	public function getAzimute(){
-		return "Sem informação disponível";
+		return $this->items[14];
 	}
 	
 	public function getElevation(){
-		return "Sem informação disponível";
+		return $this->items[15];
 	}
 	
-	public function getCoordenates(){
-			
+	public function getISCTELat(){
+		return 38.71667;
+	}
+	
+	public function getISCTELong(){
+		return -9.13333;
+	}
+	
+	public function getISCTEAlt(){
+		return 0;
 	}
 	
 	public function getLatitude(){
-			
+		return $this->items[11];
 	}
 	
 	public function getLongitude(){
-			
+		return $this->items[12];
 	}
 	
 	public function getAltitude(){
-			
+		return $this->items[13];
 	}
 	
 	function get_tle($x)
@@ -598,7 +619,6 @@
 		public static function getRedCallout($title, $msg){
 			echo "<div class=\"alert alert-danger\">
                 <h4><strong>". $title ."</strong></h4>
-
                 <p>". $msg ."</p>
               </div>";
 		}
