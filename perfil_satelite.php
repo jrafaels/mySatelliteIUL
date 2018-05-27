@@ -208,11 +208,22 @@
 	    ?>
     </div>
   </div>
-<!--<<<<<<< HEAD
-  
-=======
-
->>>>>>> 1303966431aa1114370c1c3da5d45d156165f55d-->
+    <div class="infoTempo">
+      <table class=tableInfoTempo>
+        <tr>
+          <td>cenas</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td> cenas1:</td>
+          <td>info</td>
+        </tr>
+        <tr>
+          <td> Longitude:</td>
+          <td>info</td>
+        </tr>
+        
+      </table>
 </div>
 </body>
 </html>

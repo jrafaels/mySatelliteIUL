@@ -10,52 +10,6 @@ html, body{
 	background-color: gray;
 }
 
-/* Menu e Header page style*/
-
-/*.cabecalho{
- 	width: 100%;
-	height: 8%;
-	background-color: #222;
-	position: fixed;
-	z-index: 1;
-}
-
-
-
-#logoCabecalho{
-	width:120%;
-	padding-top: 8%;
-}
-
-.menu {
-  height: 100%;
-  width: 20%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #222;
-  overflow-x: hidden; 
-}
-
-.menu a{
- padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  color:#5b859a;
-  display: block;
-  border-bottom: solid;
-  width:100%;
-  text-align: left;
-  cursor: pointer;
-  outline: none;
-}
-
-.menu a:hover {
-  color: #e3e3e3;
-  margin-top:0.5%;
-}
-*/
 
 /* ------LISTAS SATELITES E CATEGORIAS------ */
 
@@ -224,6 +178,31 @@ th, td:hover {
 	padding-top: 5%;
 	grid-row: 1/2;
 }
+
+.infoTempo{
+	color: #fff;
+	border-radius: 5px;
+	margin: 0;
+	padding-top: 90%;
+	float: right;
+	height: 100%;
+	width: 98%;
+	grid-column: 2/3;
+	grid-row: 2/3;
+
+}
+
+.tableInfoTempo{
+	opacity: 0.7;
+	font-size: 14px;
+	width: 100%;
+	height: 67%;	
+	padding-top: 5%;
+
+}
+
+
+
 
 
 .media{
