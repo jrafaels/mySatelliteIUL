@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Cabin|Pacifico" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
     <link rel="stylesheet" href="./css/headerstyle.css">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
 	 <nav class="navbar">
