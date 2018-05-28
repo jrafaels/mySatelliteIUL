@@ -74,7 +74,7 @@ th, td:hover {
 /************PERFIL SATÉLITE**************/
 .main{
 	width: 79%;
-	height: 92%;
+	height: 85%; /*92*/
 	position: relative;
   	margin: auto;
   	left: 0;
@@ -227,7 +227,7 @@ th, td:hover {
 
 .rota{
 	margin: 0;
-	padding-left: 0%;
+	padding-left: 1%;
 	padding-top: 5%;
 	height: 100%;
 	width: 100%;
