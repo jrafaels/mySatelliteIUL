@@ -79,7 +79,7 @@ th, td:hover {
   	margin: auto;
   	left: 0;
   	right: 0;
-  	padding-top: 0%;
+  	padding-top: 1%;
 	display: grid;
 	grid-template-columns: 50% 50%;
 	grid-template-rows: 45% 55%;
