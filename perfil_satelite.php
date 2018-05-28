@@ -210,19 +210,37 @@
   </div>
     <div class="infoTempo">
       <table class=tableInfoTempo>
-        <tr>
-          <td>cenas</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td> cenas1:</td>
-          <td>info</td>
-        </tr>
-        <tr>
-          <td> Longitude:</td>
-          <td>info</td>
-        </tr>
-        
+        <thead>
+        	<tr>
+            	<th colspan="2">Start</th>
+                <th colspan="3">Max Altitude</th>
+                <th colspan="2">End</th>
+            </tr>
+            <tr>
+            	<th>Data, Horas</th>
+                <th>Az</th>
+                <th>Horas</th>
+                <th>Az</th>
+                <th>El</th>
+                <th>Horas</th>
+                <th>Az</th>
+            </tr>
+        </thead>
+        <?php
+			$lista=$sat->get_satelliteTime($satId);
+			date_default_timezone_set('Europe/London');
+			foreach($lista as $s){
+				echo "<tr>
+        	<td>". date("d M H\hi", $s[2]) ."</td>
+            <td>". $s[0] ."º ". $s[1] ."</td>
+            <td>". date("H\hi", $s[6]) ."</td>
+            <td>". $s[3] ."º ". $s[4] ."</td>
+            <td>". $s[5] ."º</td>
+            <td>". date("H\hi", $s[9]) ."</td>
+            <td>". $s[7] ."º ". $s[8] ."</td>
+        </tr>";	
+			}
+		?>      
       </table>
 </div>
 </body>

@@ -12,7 +12,7 @@
 
 	require('database/classes.php');
 	
-	$aux = new Satellite();
+	$aux = new Message();
 	//$aux->readWebFile("goes");
 	
 	//$aux->get_info(43199);
@@ -22,8 +22,24 @@
 	
 	echo $list;
 	*/
-	$list = $aux->get_satPosition(40534);
-	echo $list;
+	$list = $aux->getSatsToMessage(1);
+	date_default_timezone_set('Europe/London');
+	$now = date_create();
+	echo $now->getTimestamp();
+	
+	foreach($list as $aa){
+		echo $aa['start_time']."<br>";
+		$difs = $aa['start_time']-$now->getTimestamp();
+		$dife = $aa['end_time']-$now->getTimestamp();
+		if($difs < 3600){
+			if($difs > 0){
+				echo "Vai começar";
+			}else if($dife > 0){
+				echo "Vai acabar";
+			}
+		}
+	}
+	//echo $list;
 	/*
 	$list = $aux->get_info(39574);
 	foreach($list as $a)

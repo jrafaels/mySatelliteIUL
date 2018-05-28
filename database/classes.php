@@ -160,6 +160,7 @@
 			//alerts::getGreenCallout("Satélite adiciona com sucesso!", "Parabéns!!! Agora você é satelitônico!");
 			$sat = new Satellite();
 			$sat->find_info($sat_id);
+			$sat->get_satelliteTime($sat_id);
 			$text = "O satélite ". $sat->getName() ." está quase a passar!!";
 			$msg = new Message();
 			$msg->newMsg($user_id, $sat_id, $text);
@@ -275,6 +276,7 @@
 	class Satellite extends Connection{
 		private $flag;
 		private $items = array();
+		private $listTime = array();
 		
 		private $earthRadius = 6378;
 		private $key = "W5JT3A-AEEYVQ-AZAHCH-3TIT";
@@ -449,6 +451,83 @@
 			}
 	}
 	
+	public function get_allSatsVisible(){
+			$url = 'https://www.n2yo.com/rest/v1/satellite/above/'.$this->getISCTELat().'/'.$this->getISCTELong().'/'.$this->getISCTEAlt().'/30/0/&apiKey=W5JT3A-AEEYVQ-AZAHCH-3TIT';
+			$json = file_get_contents($url);
+			$obj = json_decode($json);
+			$jsonIterator = new RecursiveIteratorIterator(
+    			new RecursiveArrayIterator(json_decode($json, TRUE)),
+    			RecursiveIteratorIterator::SELF_FIRST);
+
+			
+			$i=-2;
+			$list = array();
+			foreach ($jsonIterator as $key => $val) {
+				if(is_array($val)) {
+					//echo "$key:<br><br>";
+					$i++;
+					$j=0;
+				} else {
+					if($i>-1){
+						//echo "$key => $val<br>";
+						$list[$i][$j]=$val;
+						$j++;
+					}
+				}
+			}
+			return $list;
+	}
+	
+	public function get_satelliteTime($norad){
+			$id = $norad;
+			$url = 'https://www.n2yo.com/rest/v1/satellite/radiopasses/'.$norad.'/'.$this->getISCTELat().'/'.$this->getISCTELong().'/'.$this->getISCTEAlt().'/3/40/&apiKey=W5JT3A-AEEYVQ-AZAHCH-3TIT';
+			$json = file_get_contents($url);
+			$obj = json_decode($json);
+			$jsonIterator = new RecursiveIteratorIterator(
+    			new RecursiveArrayIterator(json_decode($json, TRUE)),
+    			RecursiveIteratorIterator::SELF_FIRST);
+
+			
+			$i=-2;
+			$this->listTime = array();
+			foreach ($jsonIterator as $key => $val) {
+				if(is_array($val)) {
+					//echo "$key:<br><br>";
+					$i++;
+					$j=0;
+				} else {
+					if($i>-1){
+						//echo "$key => $val<br>";
+						$this->listTime[$i][$j]=$val;
+						$j++;
+					}
+				}
+			}
+			$this->updateTime($norad);
+			return $this->listTime;
+	}
+	
+	public function updateTime($sat_id){
+			$sql = "UPDATE satellite SET start_time=:start_time, end_time=:end_time WHERE sat_id=:sat_id ";
+					
+			$start_time = $this->getStartTime();
+			$end_time = $this->getEndTime();
+			
+			//Devolve PDO Statement	
+			$resultado = $this->connection->prepare($sql);
+		
+			$resultado->execute(array(":start_time"=>$start_time, "end_time"=>$end_time, ":sat_id"=>$sat_id));
+		
+			$resultado->closeCursor();
+	}
+	
+	public function getStartTime(){
+		return $this->listTime[1][2];
+	}
+	
+	public function getEndTime(){
+		return $this->listTime[1][9];
+	}
 
 	public function getName(){
 		return $this->items[0];
@@ -686,6 +765,21 @@
 			$resultado->closeCursor();
 			
 			return $msg;
+		}
+		
+		public function getSatsToMessage($user_id){
+			$sql = "SELECT * FROM user_id_satellite_time WHERE user_id=:user_id";
+		
+			$resultado = $this->connection->prepare($sql);
+		
+			$resultado->bindValue(":user_id", $user_id);
+		
+			$resultado->execute(array(":user_id"=>$user_id));
+			$list = $resultado->fetchAll(PDO::FETCH_ASSOC);	
+			
+			$resultado->closeCursor();
+			
+			return $list;
 		}
 	}
 	
