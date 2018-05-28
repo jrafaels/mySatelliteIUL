@@ -144,7 +144,7 @@
     <div class="coordenadas">
       <table class=tableCoordenadas>
         <tr>
-          <td>Coordenadas do Satélite:</td>
+          <td>Coordenadas do Satélite</td>
           <td></td>
         </tr>
         <tr>
@@ -185,16 +185,56 @@
           </form>
         </div>
         <div class="button_div2">
-            <form action="">
-            <?php 
-              if($user->haveThisSatFav($_SESSION['username'], $satId)){
-              echo "<button type=\"submit\" value=\"". $satId ."\" name=\"remSat\" class=\"button\"> cenas1</button>";  
-              }else{
-              echo "<button type=\"submit\" value=\"". $satId ."\" name=\"addSat\" classe class=\"button\"> cenas2</button>";  
-            }
-            ?>
-            </form>
+            <button class="button" onclick="document.getElementById('id01').style.display='block'"> Próximas Passagens</button>  
+            <div id="id01" class="modal">
+  
+                <form class="modal-content animate" action="/action_page.php">
+                  <div class="imgcontainer">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                  </div>
+
+                  <div class="container">
+                    Próximas Passagens do Satélite <?php echo $sat->getName() ?>
+                    <table class=tableInfoTempo>
+                      <thead>
+                        <tr>
+                            <th colspan="2">Start</th>
+                              <th colspan="3">Max Altitude</th>
+                              <th colspan="2">End</th>
+                          </tr>
+                          <tr>
+                            <th>Data, Horas</th>
+                              <th>Az</th>
+                              <th>Horas</th>
+                              <th>Az</th>
+                              <th>El</th>
+                              <th>Horas</th>
+                              <th>Az</th>
+                          </tr>
+                      </thead>
+                        <?php
+                          $lista=$sat->get_satelliteTime($satId);
+                          date_default_timezone_set('Europe/London');
+                          foreach($lista as $s){
+                            echo "<tr>
+                              <td>". date("d M H\hi", $s[2]) ."</td>
+                                <td>". $s[0] ."º ". $s[1] ."</td>
+                                <td>". date("H\hi", $s[6]) ."</td>
+                                <td>". $s[3] ."º ". $s[4] ."</td>
+                                <td>". $s[5] ."º</td>
+                                <td>". date("H\hi", $s[9]) ."</td>
+                                <td>". $s[7] ."º ". $s[8] ."</td>
+                            </tr>"; 
+                          }
+                        ?>      
+                    </table>
+                  </div>
+                </form>
+            </div>
         </div>
+
+
+
       </div>
     </div>
       
@@ -208,40 +248,6 @@
 	    ?>
     </div>
   </div>
-    <div class="infoTempo">
-      <table class=tableInfoTempo>
-        <thead>
-        	<tr>
-            	<th colspan="2">Start</th>
-                <th colspan="3">Max Altitude</th>
-                <th colspan="2">End</th>
-            </tr>
-            <tr>
-            	<th>Data, Horas</th>
-                <th>Az</th>
-                <th>Horas</th>
-                <th>Az</th>
-                <th>El</th>
-                <th>Horas</th>
-                <th>Az</th>
-            </tr>
-        </thead>
-        <?php
-			$lista=$sat->get_satelliteTime($satId);
-			date_default_timezone_set('Europe/London');
-			foreach($lista as $s){
-				echo "<tr>
-        	<td>". date("d M H\hi", $s[2]) ."</td>
-            <td>". $s[0] ."º ". $s[1] ."</td>
-            <td>". date("H\hi", $s[6]) ."</td>
-            <td>". $s[3] ."º ". $s[4] ."</td>
-            <td>". $s[5] ."º</td>
-            <td>". date("H\hi", $s[9]) ."</td>
-            <td>". $s[7] ."º ". $s[8] ."</td>
-        </tr>";	
-			}
-		?>      
-      </table>
-</div>
+    
 </body>
 </html>
