@@ -144,7 +144,7 @@
     <div class="coordenadas">
       <table class=tableCoordenadas>
         <tr>
-          <td>Coordenadas do Satélite</td>
+          <td><b>Coordenadas do Satélite</b> </td>
           <td></td>
         </tr>
         <tr>
@@ -160,7 +160,7 @@
           <td><?php echo $sat->getAltitude() ?> km</td>
         </tr>
         <tr>
-          <td>Coordenadas do ISCTE</td>
+          <td><b>Coordenadas do ISCTE</b></td>
           <td></td>
         </tr>
         <tr>
@@ -194,7 +194,7 @@
                   </div>
 
                   <div class="container">
-                    Próximas Passagens do Satélite <?php echo $sat->getName() ?>
+                    <a><b>Próximas Passagens do Satélite <?php echo $sat->getName() ?></b></a>
                     <table class=tableInfoTempo>
                       <thead>
                         <tr>
@@ -232,8 +232,6 @@
                 </form>
             </div>
         </div>
-
-
 
       </div>
     </div>

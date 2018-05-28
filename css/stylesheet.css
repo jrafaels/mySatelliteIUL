@@ -356,6 +356,10 @@ span.psw {
     to {transform: scale(1)}
 }
 
+a{
+	color: black;
+}
+
 /********PERFIL UTILIZADOR*********/
 .profile_main{
 	width: 79%;
