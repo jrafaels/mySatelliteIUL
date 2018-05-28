@@ -3,6 +3,7 @@
 
 <html>
 <head>
+<title>mySatellite-IUL | Perfil</title>
 <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <meta charset="utf-8">

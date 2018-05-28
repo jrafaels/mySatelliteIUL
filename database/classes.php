@@ -92,9 +92,9 @@
 		* Create new user
 		* @param
 		*/
-		public function newUser($username, $email, $password){
+		public function newUser($username, $name, $email, $password){
 			
-			$sql = "INSERT INTO user (username, email, password) VALUES (:username, :email, :password)";
+			$sql = "INSERT INTO user (username, name, email, password) VALUES (:username, :name, :email, :password)";
 		
 			//Hash Password
 			//$hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -102,11 +102,11 @@
 			//Devolve PDO Statement	
 			$resultado = $this->connection->prepare($sql);
 		
-			$resultado->execute(array(":username"=>$username, ":email"=>$email, ":password"=>$password));
+			$resultado->execute(array(":username"=>$username, ":name"=>$name, ":email"=>$email, ":password"=>$password));
 		
 			$resultado->closeCursor();
 			
-			echo "Novo usuário criado com sucesso";
+			//echo "Novo usuário criado com sucesso";
 		}
 		
 		/**
@@ -162,8 +162,8 @@
 			$sat->find_info($sat_id);
 			$sat->get_satelliteTime($sat_id);
 			$text = "O satélite ". $sat->getName() ." está quase a passar!!";
-			$msg = new Message();
-			$msg->newMsg($user_id, $sat_id, $text);
+			//$msg = new Message();
+			//$msg->newMsg($user_id, $sat_id, $text);
 		}
 		
 		public function remSatFav($username, $sat_id){
@@ -183,8 +183,8 @@
 			$resultado->closeCursor();
 			
 			//echo "Satélite favorito removido com sucesso.";
-			$msg = new Message();
-			$msg->remMsg($user_id, $sat_id);
+			//$msg = new Message();
+			//$msg->remMsg($user_id, $sat_id);
 		}
 		
 		public function haveThisSatFav($username, $sat_id){
@@ -732,7 +732,7 @@
 		
 			$resultado->closeCursor();
 			
-			echo "Nova mensagem criada com sucesso";
+			//echo "Nova mensagem criada com sucesso";
 		}
 		
 		public function remMsg($user_id, $sat_id){
@@ -749,7 +749,7 @@
 		
 			$resultado->closeCursor();
 			
-			echo "Mensagem removida com sucesso.";
+			//echo "Mensagem removida com sucesso.";
 		}
 		
 		public function getMsgs($user_id){
@@ -767,7 +767,7 @@
 			return $msg;
 		}
 		
-		public function getSatsToMessage($user_id){
+		private function getSatsToMessage($user_id){
 			$sql = "SELECT * FROM user_id_satellite_time WHERE user_id=:user_id";
 		
 			$resultado = $this->connection->prepare($sql);
@@ -780,6 +780,42 @@
 			$resultado->closeCursor();
 			
 			return $list;
+		}
+		
+		public function getMessages($user_id){
+			$list = $this->getSatsToMessage($user_id);
+			
+			date_default_timezone_set('Europe/London');
+			$now = date_create();
+			$listMsg = array();
+			$i=0;
+			foreach($list as $aa){
+				$difs = $aa['start_time']-$now->getTimestamp();
+				$dife = $aa['end_time']-$now->getTimestamp();
+				echo "<br>";
+
+				if($difs < 3600){
+					if($difs > 0){
+						$time = $this->getTime($difs);
+						$listMsg[$i][0]="O satélite ".$aa['name']." está a aproximar-se. Faltam ". $time;
+						$listMsg[$i][1]=$aa['sat_id'];
+					}else if($dife > 0){
+						$time = $this->getTime($dife);
+						$listMsg[$i][0]="O satélite ".$aa['name']." está contactável durante ". $time;
+						$listMsg[$i][1]=$aa['sat_id'];
+					}
+					$i++;
+				}
+			}
+			return $listMsg;
+		}
+		
+		private function getTime($time){
+			if($time>3600){
+				return round($time/60/60)."h";
+			}else{
+				return round($time/60)."min";	
+			}
 		}
 	}
 	

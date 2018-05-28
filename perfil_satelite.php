@@ -123,8 +123,8 @@
 			//$user->sendEmail($_SESSION['username'], "Novo Satélite Favorito", $msg);
 			
 		}catch(Exception $e){
-			echo "Erro nos satélites favoritos " . $e->GetMessage();	
-			alerts::getRedCallout("Erro ao adicionar", "Erro desconhecido.");
+			//echo "Erro nos satélites favoritos " . $e->GetMessage();	
+			//alerts::getRedCallout("Erro ao adicionar", "Erro desconhecido.");
 		}
 		}
 		if(!empty($satRem)){
@@ -135,8 +135,8 @@
 			//$user->sendEmail($_SESSION['username'], "Perdeu um satélite amigo", $msg);
 			
 		}catch(Exception $e){
-			echo "Erro nos satélites favoritos " . $e->GetMessage();	
-			alerts::getRedCallout("Erro ao remover", "Erro desconhecido.");
+			//echo "Erro nos satélites favoritos " . $e->GetMessage();	
+			//alerts::getRedCallout("Erro ao remover", "Erro desconhecido.");
 		}
 	}
 	

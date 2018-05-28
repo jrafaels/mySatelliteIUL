@@ -21,11 +21,12 @@
 			$user = new User();
 		
 			$username = htmlentities(addslashes($_POST['myusername']));
+			$name = htmlentities(addslashes($_POST['myname']));
 			$email = htmlentities(addslashes($_POST['myemail']));
 			$password = htmlentities(addslashes($_POST['mypassword']));	
 			
-			if(!empty($username) && !empty($email) && !empty($password)){
-				$user->newUser($username, $email, $password);
+			if(!empty($username) && !empty($name) && !empty($email) && !empty($password)){
+				$user->newUser($username, $name, $email, $password);
 			}else{
 				alerts::getRedCallout("Erro ao Registar", "Todos os campos têm de estar preenchidos.");
 			}
@@ -48,6 +49,10 @@
 						    <div class="form-group">
 						    	<label for="email">Username:</label>
 						     	<input name="myusername" type="text" class="form-control" id="email" placeholder="Introduzir username">
+						    </div>
+                            <div class="form-group">
+						    	<label for="email">Nome:</label>
+						     	<input name="myname" type="text" class="form-control" id="email" placeholder="Introduzir nome">
 						    </div>
 						    <div class="form-group">
 						      	<label for="pwd">E-mail:</label>

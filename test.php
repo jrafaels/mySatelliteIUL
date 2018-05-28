@@ -22,23 +22,8 @@
 	
 	echo $list;
 	*/
-	$list = $aux->getSatsToMessage(1);
-	date_default_timezone_set('Europe/London');
-	$now = date_create();
-	echo $now->getTimestamp();
+	$list = $aux->getMessages(1);
 	
-	foreach($list as $aa){
-		echo $aa['start_time']."<br>";
-		$difs = $aa['start_time']-$now->getTimestamp();
-		$dife = $aa['end_time']-$now->getTimestamp();
-		if($difs < 3600){
-			if($difs > 0){
-				echo "Vai começar";
-			}else if($dife > 0){
-				echo "Vai acabar";
-			}
-		}
-	}
 	//echo $list;
 	/*
 	$list = $aux->get_info(39574);
