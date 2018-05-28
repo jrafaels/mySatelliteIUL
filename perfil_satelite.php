@@ -172,30 +172,30 @@
           <td><?php echo $sat->getISCTELong() ?> ºE</td>
         </tr>
       </table>
-
-      <div class="button_div">
-        <form action="">
-        <?php 
-          if($user->haveThisSatFav($_SESSION['username'], $satId)){
-          echo "<button type=\"submit\" value=\"". $satId ."\" name=\"remSat\" class=\"button\"> Remover dos Favoritos</button>";  
-          }else{
-          echo "<button type=\"submit\" value=\"". $satId ."\" name=\"addSat\" classe class=\"button\"> Adicionar aos Favoritos</button>";  
-        }
-        ?>
-        </form>
-     </div>
-       <div class="button_div">
+      <div class="buttons_panel">
+        <div class="button_div1">
           <form action="">
           <?php 
             if($user->haveThisSatFav($_SESSION['username'], $satId)){
-            echo "<button type=\"submit\" value=\"". $satId ."\" name=\"remSat\" class=\"button\"> cenas1</button>";  
+            echo "<button type=\"submit\" value=\"". $satId ."\" name=\"remSat\" class=\"button\"> Remover dos Favoritos</button>";  
             }else{
-            echo "<button type=\"submit\" value=\"". $satId ."\" name=\"addSat\" classe class=\"button\"> cenas2</button>";  
+            echo "<button type=\"submit\" value=\"". $satId ."\" name=\"addSat\" classe class=\"button\"> Adicionar aos Favoritos</button>";  
           }
           ?>
           </form>
-     </div>
-
+        </div>
+        <div class="button_div2">
+            <form action="">
+            <?php 
+              if($user->haveThisSatFav($_SESSION['username'], $satId)){
+              echo "<button type=\"submit\" value=\"". $satId ."\" name=\"remSat\" class=\"button\"> cenas1</button>";  
+              }else{
+              echo "<button type=\"submit\" value=\"". $satId ."\" name=\"addSat\" classe class=\"button\"> cenas2</button>";  
+            }
+            ?>
+            </form>
+        </div>
+      </div>
     </div>
       
   </div>
@@ -203,7 +203,7 @@
     <div class="image"> <img src="img/satelite2.jpg"/> </div>
     <div class="rota">
       <?php
-        echo '<iframe width="540" height="320" src="https://www.n2yo.com/leaflet.php?s='.$satId.'&amp;size=large&amp;all=1&amp;me=10" scrolling="no" style="border: none; overflow: hidden; display: block"></iframe>';
+        echo '<iframe width="540" height="345" src="https://www.n2yo.com/leaflet.php?s='.$satId.'&amp;size=large&amp;all=1&amp;me=10" scrolling="no" style="border: none; overflow: hidden; display: block"></iframe>';
 
 	    ?>
     </div>
